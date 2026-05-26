@@ -125,7 +125,7 @@ namespace MentCarePresentationLayer
         {
             clsPatient patient;
 
-            patient = clsPatient.Find(patientID);
+            patient = clsPatient.FindByID(patientID);
             if(patient != null)
             {
                 dgvPatients.Rows.Add(                        
@@ -138,28 +138,72 @@ namespace MentCarePresentationLayer
 
         }
 
+        private void AddPatientToDataGrivView(clsPatient patient)
+        {
+            dgvPatients.Rows.Add(
+                patient.PatientID,
+                patient.FirstName +" "+patient.LastName,
+                patient.Phone,
+                patient.Gender
+            );
+        }
+
+        private clsPatient FillPatientObjectFromDataRow( DataRow patientRow)
+        {
+            clsPatient patient = new clsPatient();
+
+            patient.PatientID = (int)patientRow["PatientID"];
+            patient.FirstName = patientRow["FirstName"].ToString();
+
+            patient.LastName = (patientRow["LastName"] != DBNull.Value) ? (patientRow["LastName"].ToString()) : (patient.LastName = "");
+            patient.Gender = patientRow["Gender"].ToString();
+            patient.DateOfBirth = (DateTime)patientRow["DateOfBirth"];
+            patient.Phone = patientRow["Phone"].ToString() ;
+
+            patient.Address = (patientRow["Address"] != DBNull.Value) ? (patientRow["Address"].ToString()) : (patient.Address = "");
+            patient.EmergencyContact = (patientRow["EmergencyContact"] != DBNull.Value) ? (patientRow["EmergencyContact"].ToString()) : (patient.EmergencyContact = "");
+
+            return patient;
+
+        }
         private void SearchByFirstName(string firstName)
         {
             clsPatient patient;
 
-            patient = clsPatient.Find(firstName);
-            if (patient != null)
+            DataTable patientsDT = clsPatient.FindByFirstName(firstName);
+
+            if(patientsDT != null)
             {
-                dgvPatients.Rows.Add(
-                    patient.PatientID,
-                    patient.FirstName + " " + patient.LastName,
-                    patient.Phone,
-                    patient.Gender
-                );
+                foreach(DataRow patientRow in patientsDT.Rows)
+                {
+                    patient = FillPatientObjectFromDataRow(patientRow);
+                    AddPatientToDataGrivView(patient);
+                }
+            }
+        }
+
+        private void SearchByPhone(string phoneNumber)
+        {
+            clsPatient patient;
+
+            DataTable patientsDT = clsPatient.FindByPhone(phoneNumber);
+
+            if (patientsDT != null)
+            {
+                foreach (DataRow patientRow in patientsDT.Rows)
+                {
+                    patient = FillPatientObjectFromDataRow(patientRow);
+                    AddPatientToDataGrivView(patient);
+                }
             }
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            //Thread.Sleep(500);
             string searchText = txtSearch.Text.ToString().Trim();
 
             if (txtSearch.Text.Length > 0 && !string.IsNullOrWhiteSpace(searchText))
             {
-                Thread.Sleep(2000);
                 dgvPatients.Rows.Clear(); //Clear DataGrid From Results
 
                 if (cbSearchBy.SelectedItem.ToString() == "ID")
@@ -174,6 +218,7 @@ namespace MentCarePresentationLayer
                 }
                 else if (cbSearchBy.SelectedItem.ToString() == "Phone"){
 
+                    SearchByPhone(searchText);
                 }
             }
             else
@@ -183,8 +228,10 @@ namespace MentCarePresentationLayer
 
         }
 
+        private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-
+        }
     }
 
     

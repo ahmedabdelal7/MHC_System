@@ -64,13 +64,13 @@ namespace MentCareBussinessLayer
             return PatientID > 0;
         }
 
-        public static  clsPatient Find(int PatientID)
+        public static  clsPatient FindByID(int PatientID)
         {
 
              string FirstName = "", LastName = "", Gender = "", Phone = "", Address = "", EmergencyContact = ""; 
              DateTime DateOfBirth = DateTime.Now;
 
-             clsPatient patient = new clsPatient();
+             //clsPatient patient = new clsPatient();
 
             if (clsPatientsData.GetPatientByID(PatientID, ref FirstName, ref LastName, ref Gender, ref DateOfBirth, ref Phone, ref Address, ref EmergencyContact))
             {
@@ -78,6 +78,16 @@ namespace MentCareBussinessLayer
             }else
                 return null;
 
+        }
+
+        public static DataTable FindByFirstName(string FirstName)
+        {
+            return clsPatientsData.GetPatientByFirstName(FirstName);
+        }
+
+        public static DataTable FindByPhone(string Phone)
+        {
+            return clsPatientsData.GetPatientByPhoneNumber(Phone);
         }
 
         public static bool IsPatientExist(int PatientID)

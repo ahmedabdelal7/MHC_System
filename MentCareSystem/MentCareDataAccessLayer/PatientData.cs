@@ -128,7 +128,102 @@ namespace MentCareDataAccessLayer
             return isFound;
         }
 
-       
+        public static DataTable GetPatientByFirstName(string FirstName)
+        {
+            DataTable table = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Patients WHERE FirstName LIKE @FirstName ORDER BY FirstName ASC";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@FirstName", "%" + FirstName + "%");
+
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    /*PatientID = (int)reader["PatientID"];
+
+                    FirstName = reader["FirstName"].ToString();
+
+
+                    if (reader["LastName"] != DBNull.Value)
+                        LastName = reader["LastName"].ToString();
+
+                    Gender = reader["Gender"].ToString();
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Phone = reader["Phone"].ToString();
+
+                    if (reader["Address"] != DBNull.Value)
+                        Address = reader["Address"].ToString();
+
+                    if (reader["EmergencyContact"] != DBNull.Value)
+                        EmergencyContact = reader["EmergencyContact"].ToString();*/
+                    table.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally { connection.Close(); }
+            return table;
+        }
+
+        public static DataTable GetPatientByPhoneNumber(string Phone)
+        {
+            
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Patients WHERE Phone LIKE @Phone";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Phone", "%" +Phone+ "%");
+                    DataTable dataTable = new DataTable();
+
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    
+                /*  PatientID = (int)reader["PatientID"];
+                    FirstName = reader["FirstName"].ToString();
+
+                    if (reader["LastName"] != DBNull.Value)
+                        LastName = reader["LastName"].ToString();
+
+                    Gender = reader["Gender"].ToString();
+
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Phone = reader["Phone"].ToString();
+
+                    if (reader["Address"] != DBNull.Value)
+                        Address = reader["Address"].ToString();
+
+                    if (reader["EmergencyContact"] != DBNull.Value)
+                        EmergencyContact = reader["EmergencyContact"].ToString();*/
+                    dataTable.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            finally { connection.Close(); }
+            return dataTable;
+        }
 
         public static bool IsPatientExist(int PatientID)
         {

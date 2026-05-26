@@ -51,7 +51,7 @@ namespace MentCarePresentationLayer
 
             lblAddEditPatient.Text = "Edit Patient Info";
 
-            _Patient = clsPatient.Find(_PatientID);
+            _Patient = clsPatient.FindByID(_PatientID);
             lblPatientID.Text =  _Patient.PatientID.ToString();
             txtFirstName.Text = _Patient.FirstName.ToString();
             txtLastName.Text = _Patient.LastName.ToString();
