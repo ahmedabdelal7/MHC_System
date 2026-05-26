@@ -1,0 +1,168 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MantCareConsole\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8AF025CE-EACD-4C22-9E33-4F29BAC18CF4}|..\\MentCareDataAccessLayer\\MentCareDataAccessLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcaredataaccesslayer\\patientdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucpatientscs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucpatientscs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\frmaddeditpatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\frmaddeditpatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\Form1.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.cs [Design]",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T22:09:42.992Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmAddEditPatient.cs [Design]",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditPatient.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditPatient.cs [Design]",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T23:27:59.998Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ucPatientscs.cs [Design]",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucPatientscs.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucPatientscs.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucPatientscs.cs [Design]",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\ucPatientscs.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T16:38:31.599Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PatientData.cs",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareDataAccessLayer\\PatientData.cs",
+              "RelativeDocumentMoniker": "..\\MentCareDataAccessLayer\\PatientData.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareDataAccessLayer\\PatientData.cs",
+              "RelativeToolTip": "..\\MentCareDataAccessLayer\\PatientData.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB0BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-26T15:11:29.304Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ucPatientscs.cs",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucPatientscs.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucPatientscs.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucPatientscs.cs",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\ucPatientscs.cs",
+              "ViewState": "AQIAAIsAAAAAAAAAAAAAAJAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T19:05:22.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\Form1.Designer.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.Designer.cs",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\Form1.Designer.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAywB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T17:50:47.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmAddEditPatient.cs",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditPatient.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditPatient.cs",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T17:32:23.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\Form1.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.cs",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\Form1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-25T17:29:37.829Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

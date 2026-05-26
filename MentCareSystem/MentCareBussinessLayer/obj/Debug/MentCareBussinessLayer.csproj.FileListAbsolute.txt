@@ -1,0 +1,9 @@
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\bin\Debug\MentCareBussinessLayer.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\bin\Debug\MentCareBussinessLayer.pdb
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\bin\Debug\MentCareDataAccessLayer.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\bin\Debug\MentCareDataAccessLayer.pdb
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\obj\Debug\MentCareBussinessLayer.csproj.AssemblyReference.cache
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\obj\Debug\MentCareBussinessLayer.csproj.CoreCompileInputs.cache
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\obj\Debug\MentCare.EC03C4F1.Up2Date
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\obj\Debug\MentCareBussinessLayer.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareBussinessLayer\obj\Debug\MentCareBussinessLayer.pdb

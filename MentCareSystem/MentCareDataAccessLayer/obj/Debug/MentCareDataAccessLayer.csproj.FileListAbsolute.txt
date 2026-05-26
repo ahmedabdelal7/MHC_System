@@ -1,0 +1,6 @@
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareDataAccessLayer\bin\Debug\MentCareDataAccessLayer.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareDataAccessLayer\bin\Debug\MentCareDataAccessLayer.pdb
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareDataAccessLayer\obj\Debug\MentCareDataAccessLayer.csproj.AssemblyReference.cache
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareDataAccessLayer\obj\Debug\MentCareDataAccessLayer.csproj.CoreCompileInputs.cache
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareDataAccessLayer\obj\Debug\MentCareDataAccessLayer.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCareDataAccessLayer\obj\Debug\MentCareDataAccessLayer.pdb

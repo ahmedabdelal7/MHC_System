@@ -1,0 +1,12 @@
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\bin\Debug\MantCareConsole.exe.config
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\bin\Debug\MantCareConsole.exe
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\bin\Debug\MantCareConsole.pdb
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\bin\Debug\MentCareBussinessLayer.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\bin\Debug\MentCareDataAccessLayer.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\bin\Debug\MentCareBussinessLayer.pdb
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\bin\Debug\MentCareDataAccessLayer.pdb
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\obj\Debug\MantCareConsole.csproj.AssemblyReference.cache
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\obj\Debug\MantCareConsole.csproj.CoreCompileInputs.cache
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\obj\Debug\MantCare.B396DFF6.Up2Date
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\obj\Debug\MantCareConsole.exe
+E:\Projects\MentCareSystemFolder\MentCareSystem\MantCareConsole\obj\Debug\MantCareConsole.pdb
