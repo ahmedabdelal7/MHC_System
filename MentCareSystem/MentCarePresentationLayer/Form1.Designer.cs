@@ -48,6 +48,7 @@
             this.btnPatients.FillColor = System.Drawing.Color.Transparent;
             this.btnPatients.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPatients.ForeColor = System.Drawing.Color.White;
+            this.btnPatients.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
             this.btnPatients.HoverState.Parent = this.btnPatients;
             this.btnPatients.Image = ((System.Drawing.Image)(resources.GetObject("btnPatients.Image")));
             this.btnPatients.ImageOffset = new System.Drawing.Point(-20, 0);
@@ -72,6 +73,7 @@
             this.btnDoctors.FillColor = System.Drawing.Color.Transparent;
             this.btnDoctors.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoctors.ForeColor = System.Drawing.Color.White;
+            this.btnDoctors.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
             this.btnDoctors.HoverState.Parent = this.btnDoctors;
             this.btnDoctors.Image = ((System.Drawing.Image)(resources.GetObject("btnDoctors.Image")));
             this.btnDoctors.ImageOffset = new System.Drawing.Point(-20, 0);
@@ -83,6 +85,7 @@
             this.btnDoctors.TabIndex = 0;
             this.btnDoctors.Text = "Doctors";
             this.btnDoctors.TextOffset = new System.Drawing.Point(-15, 0);
+            this.btnDoctors.Click += new System.EventHandler(this.btnDoctors_Click);
             // 
             // btnConsultations
             // 
@@ -95,6 +98,7 @@
             this.btnConsultations.FillColor = System.Drawing.Color.Transparent;
             this.btnConsultations.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultations.ForeColor = System.Drawing.Color.White;
+            this.btnConsultations.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
             this.btnConsultations.HoverState.Parent = this.btnConsultations;
             this.btnConsultations.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultations.Image")));
             this.btnConsultations.ImageOffset = new System.Drawing.Point(-5, 0);
@@ -105,6 +109,7 @@
             this.btnConsultations.Size = new System.Drawing.Size(286, 61);
             this.btnConsultations.TabIndex = 0;
             this.btnConsultations.Text = "Consultations";
+            this.btnConsultations.Click += new System.EventHandler(this.btnConsultations_Click);
             // 
             // guna2Panel1
             // 
@@ -128,6 +133,7 @@
             this.pnlContainer.ShadowDecoration.Parent = this.pnlContainer;
             this.pnlContainer.Size = new System.Drawing.Size(879, 583);
             this.pnlContainer.TabIndex = 7;
+            this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
             // Form1
             // 

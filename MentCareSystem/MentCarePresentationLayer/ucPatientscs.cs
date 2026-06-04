@@ -128,17 +128,12 @@ namespace MentCarePresentationLayer
             patient = clsPatient.FindByID(patientID);
             if(patient != null)
             {
-                dgvPatients.Rows.Add(                        
-                    patient.PatientID,
-                    patient.FirstName +" "+ patient.LastName,
-                    patient.Phone,                   
-                    patient.Gender
-                );
+                AddPatientToDataGridView(patient);
             }
 
         }
 
-        private void AddPatientToDataGrivView(clsPatient patient)
+        private void AddPatientToDataGridView(clsPatient patient)
         {
             dgvPatients.Rows.Add(
                 patient.PatientID,
@@ -147,7 +142,6 @@ namespace MentCarePresentationLayer
                 patient.Gender
             );
         }
-
         private clsPatient FillPatientObjectFromDataRow( DataRow patientRow)
         {
             clsPatient patient = new clsPatient();
@@ -177,11 +171,10 @@ namespace MentCarePresentationLayer
                 foreach(DataRow patientRow in patientsDT.Rows)
                 {
                     patient = FillPatientObjectFromDataRow(patientRow);
-                    AddPatientToDataGrivView(patient);
+                    AddPatientToDataGridView(patient);
                 }
             }
         }
-
         private void SearchByPhone(string phoneNumber)
         {
             clsPatient patient;
@@ -193,7 +186,7 @@ namespace MentCarePresentationLayer
                 foreach (DataRow patientRow in patientsDT.Rows)
                 {
                     patient = FillPatientObjectFromDataRow(patientRow);
-                    AddPatientToDataGrivView(patient);
+                    AddPatientToDataGridView(patient);
                 }
             }
         }
@@ -228,10 +221,6 @@ namespace MentCarePresentationLayer
 
         }
 
-        private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 
     
