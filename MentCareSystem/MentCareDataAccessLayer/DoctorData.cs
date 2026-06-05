@@ -47,9 +47,7 @@ namespace MentCareDataAccessLayer
 
             command.Parameters.AddWithValue("@Phone", doctorInfo.Phone);
 
-            if (doctorInfo.HireDate != null)
-                command.Parameters.AddWithValue("@HireDate", doctorInfo.HireDate);
-            else command.Parameters.AddWithValue("@HireDate", DBNull.Value);
+            command.Parameters.AddWithValue("@HireDate", doctorInfo.HireDate);
 
             try
             {
@@ -94,9 +92,8 @@ namespace MentCareDataAccessLayer
 
             command.Parameters.AddWithValue("@Phone", doctorInfo.Phone);
 
-            if (doctorInfo.HireDate != null)
-                command.Parameters.AddWithValue("@HireDate", doctorInfo.HireDate);
-            else command.Parameters.AddWithValue("@HireDate", DBNull.Value);
+
+            command.Parameters.AddWithValue("@HireDate", doctorInfo.HireDate);
 
             try
             {
@@ -107,7 +104,7 @@ namespace MentCareDataAccessLayer
             }
             catch (Exception ex) { Console.WriteLine(ex); }
             finally { connection.Close(); }
-            return rowsAffected > 1;
+            return rowsAffected > 0;
         }
 
         public static bool FindDoctorByID(int DoctorID, ref stDoctor doctorInfo)
@@ -146,10 +143,7 @@ namespace MentCareDataAccessLayer
 
                     doctorInfo.Specialization  = reader["Specialization"].ToString();
 
-                    if (reader["HireDate"] != DBNull.Value)
-                        doctorInfo.HireDate = (DateTime)reader["HireDate"];
-                    else doctorInfo.HireDate = new DateTime(0000, 00, 00, 00, 00, 00);
-
+                    doctorInfo.HireDate = (DateTime)reader["HireDate"];
 
                 }
                 reader.Close();

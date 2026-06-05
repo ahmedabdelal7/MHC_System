@@ -252,7 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 711);
+            this.ClientSize = new System.Drawing.Size(590, 714);
             this.Controls.Add(this.txtEmergencyContact);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtPhone);

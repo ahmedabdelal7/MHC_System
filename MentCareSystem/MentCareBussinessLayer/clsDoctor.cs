@@ -32,7 +32,7 @@ namespace MentCareBussinessLayer
             Email = string.Empty;
             Phone = string.Empty;
             Specialization = string.Empty;
-            HireDate = DateTime.MinValue;
+            HireDate = DateTime.Now;
 
             _Mode = enMode.AddNew;
         } 
@@ -59,8 +59,9 @@ namespace MentCareBussinessLayer
             stDoctor.Phone = Phone;
             stDoctor.Specialization = Specialization;
             stDoctor.HireDate= HireDate;
+            this.DoctorID = clsDoctorData.AddNewDoctor(stDoctor);
 
-            return clsDoctorData.AddNewDoctor(stDoctor) != -1;
+            return this.DoctorID != -1;
 
         }
         private bool _Update()
@@ -99,7 +100,7 @@ namespace MentCareBussinessLayer
 
             if(clsDoctorData.FindDoctorByID(DoctorID,ref stDoctor))
             {
-                return new clsDoctor(stDoctor.DoctorID,stDoctor.FirstName,stDoctor.LastName,stDoctor.Email,stDoctor.Phone,stDoctor.Specialization,stDoctor.HireDate);
+                return new clsDoctor(DoctorID, stDoctor.FirstName,stDoctor.LastName,stDoctor.Email,stDoctor.Phone,stDoctor.Specialization,stDoctor.HireDate);
             }
             return null;  
         }

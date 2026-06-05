@@ -30,18 +30,13 @@ namespace MentCarePresentationLayer
             {
                 foreach (DataRow doctorRow in doctorsDT.Rows)
                 {
-                    dgvDoctors.Rows.Add(doctorRow["DoctorID"], doctorRow["FirstName"] + " " + doctorRow["LastName"],
-                        doctorRow["Specialization"], doctorRow["Phone"], doctorRow["Email"]);
+                    AddDoctorRowToDataGridView(doctorRow);
+
                 }
             }
             dgvDoctors.SelectedCells[0].Selected = false;
             
         }
-        private void ucDoctors_Load(object sender, EventArgs e)
-        {
-            _LoadDoctors();
-        }
-
         private void Delete()
         {
            
@@ -74,23 +69,128 @@ namespace MentCarePresentationLayer
 
 
         }
+        private void ShowAddForm()
+        {
+            Form frm = new frmAddEditDoctor(-1);
+            frm.ShowDialog();
+        }
+        private void ShowEditForm()
+        {
+
+            int ID;
+            try
+            {
+                ID = Convert.ToInt32(dgvDoctors.SelectedCells[0].Value);
+
+            }
+            catch
+            {
+                MessageBox.Show("Please select doctor first");
+                return;
+            }
+
+            Form frm = new frmAddEditDoctor(ID);
+            frm.ShowDialog();
+        }
+        private void ucDoctors_Load(object sender, EventArgs e)
+        {
+            _LoadDoctors();
+        }
+
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Delete();
             _LoadDoctors();
-
-
-        }
-
-        private void dgvDoctors_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             Delete();
             _LoadDoctors();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            ShowAddForm();
+            _LoadDoctors();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ShowEditForm();
+            _LoadDoctors();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowEditForm();
+            _LoadDoctors();
+        }
+
+        private void AddDoctorRowToDataGridView(DataRow doctorRow)
+        {
+            dgvDoctors.Rows.Add(
+                    doctorRow["DoctorID"].ToString(),
+                    doctorRow["FirstName"] + " " + doctorRow["LastName"],
+                    doctorRow["Specialization"],
+                    doctorRow["Phone"],
+                    doctorRow["Email"]
+                );
+        }
+        private void SearchByID(int ID)
+        {
+            clsDoctor doctor = clsDoctor.FindByID(ID);
+            if(doctor != null)
+            {
+                dgvDoctors.Rows.Add(
+                    doctor.DoctorID.ToString(),
+                    doctor.FirstName + " " + doctor.LastName,
+                    doctor.Specialization,
+                    doctor.Phone,
+                    doctor.Email
+                );
+            }/*else
+                _LoadDoctors();*/
+        }
+        private void SearchByName(string Name)
+        {
+            DataTable DoctorsDT = clsDoctor.FindByName(Name);
+            if(DoctorsDT != null)
+            {
+                foreach(DataRow doctorRow in DoctorsDT.Rows)
+                {
+                    AddDoctorRowToDataGridView(doctorRow);
+                }
+            }
+            
+        }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            string searchText = txtSearch.Text.ToString().Trim();
+
+            if(searchText.Length > 0 && !string.IsNullOrWhiteSpace(searchText)) {
+
+                        dgvDoctors.Rows.Clear();
+                if(cbSearchBy.SelectedItem.ToString() == "ID")
+                {
+                    if (int.TryParse(searchText, out int ID))
+                    {
+                        SearchByID(ID);
+                    }
+                }
+
+                if(cbSearchBy.SelectedItem.ToString() == "FirstName")
+                {
+                    searchText = txtSearch.Text.ToLower();
+                    SearchByName(searchText);
+                }
+            }
+            else
+            {
+                _LoadDoctors();
+            }
         }
     }
 }

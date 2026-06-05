@@ -17,3 +17,4 @@ E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\De
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\bin\Debug\Guna.UI2.dll
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucPatientscs.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucDoctors.resources
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmAddEditDoctor.resources
