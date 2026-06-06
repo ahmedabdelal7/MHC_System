@@ -121,7 +121,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(295, 583);
+            this.guna2Panel1.Size = new System.Drawing.Size(295, 719);
             this.guna2Panel1.TabIndex = 5;
             // 
             // pnlContainer
@@ -131,14 +131,14 @@
             this.pnlContainer.Location = new System.Drawing.Point(295, 0);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.ShadowDecoration.Parent = this.pnlContainer;
-            this.pnlContainer.Size = new System.Drawing.Size(879, 583);
+            this.pnlContainer.Size = new System.Drawing.Size(968, 719);
             this.pnlContainer.TabIndex = 7;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1174, 583);
+            this.ClientSize = new System.Drawing.Size(1263, 719);
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.guna2Panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;

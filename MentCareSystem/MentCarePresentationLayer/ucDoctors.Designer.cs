@@ -34,6 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucDoctors));
             this.dgvDoctors = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.DoctorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Specialization = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsDoctor = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,11 +49,6 @@
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.DoctorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Specialization = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctors)).BeginInit();
             this.cmsDoctor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -93,7 +93,7 @@
             this.dgvDoctors.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvDoctors.EnableHeadersVisualStyles = false;
             this.dgvDoctors.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(238)))), ((int)(((byte)(208)))));
-            this.dgvDoctors.Location = new System.Drawing.Point(0, 290);
+            this.dgvDoctors.Location = new System.Drawing.Point(0, 291);
             this.dgvDoctors.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDoctors.MultiSelect = false;
             this.dgvDoctors.Name = "dgvDoctors";
@@ -127,6 +127,42 @@
             this.dgvDoctors.ThemeStyle.RowsStyle.Height = 50;
             this.dgvDoctors.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
             this.dgvDoctors.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // DoctorID
+            // 
+            this.DoctorID.HeaderText = "DoctorID";
+            this.DoctorID.MinimumWidth = 6;
+            this.DoctorID.Name = "DoctorID";
+            this.DoctorID.ReadOnly = true;
+            this.DoctorID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // FullName
+            // 
+            this.FullName.HeaderText = "Full Name";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
+            // Specialization
+            // 
+            this.Specialization.HeaderText = "Specialization";
+            this.Specialization.MinimumWidth = 6;
+            this.Specialization.Name = "Specialization";
+            this.Specialization.ReadOnly = true;
+            // 
+            // Phone
+            // 
+            this.Phone.HeaderText = "Phone";
+            this.Phone.MinimumWidth = 6;
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
             // 
             // cmsDoctor
             // 
@@ -168,7 +204,7 @@
             this.txtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtSearch.IconLeft")));
             this.txtSearch.IconLeftOffset = new System.Drawing.Point(10, 0);
             this.txtSearch.IconLeftSize = new System.Drawing.Size(25, 25);
-            this.txtSearch.Location = new System.Drawing.Point(455, 227);
+            this.txtSearch.Location = new System.Drawing.Point(455, 228);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Search for Doctor...";
@@ -187,7 +223,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Location = new System.Drawing.Point(774, 46);
+            this.btnAdd.Location = new System.Drawing.Point(774, 47);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
@@ -204,7 +240,7 @@
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.HoverState.Parent = this.btnEdit;
-            this.btnEdit.Location = new System.Drawing.Point(774, 108);
+            this.btnEdit.Location = new System.Drawing.Point(774, 109);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ShadowDecoration.Parent = this.btnEdit;
@@ -221,7 +257,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.HoverState.Parent = this.btnDelete;
-            this.btnDelete.Location = new System.Drawing.Point(774, 174);
+            this.btnDelete.Location = new System.Drawing.Point(774, 175);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ShadowDecoration.Parent = this.btnDelete;
@@ -249,7 +285,7 @@
             "ID",
             "FirstName"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;
-            this.cbSearchBy.Location = new System.Drawing.Point(310, 228);
+            this.cbSearchBy.Location = new System.Drawing.Point(310, 229);
             this.cbSearchBy.Margin = new System.Windows.Forms.Padding(2);
             this.cbSearchBy.Name = "cbSearchBy";
             this.cbSearchBy.ShadowDecoration.Parent = this.cbSearchBy;
@@ -267,7 +303,7 @@
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(562, 194);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(562, 195);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 14;
             this.guna2PictureBox1.TabStop = false;
@@ -277,49 +313,13 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(227, 232);
+            this.label1.Location = new System.Drawing.Point(227, 233);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2);
             this.label1.Size = new System.Drawing.Size(66, 24);
             this.label1.TabIndex = 16;
             this.label1.Text = "Find By";
-            // 
-            // DoctorID
-            // 
-            this.DoctorID.HeaderText = "DoctorID";
-            this.DoctorID.MinimumWidth = 6;
-            this.DoctorID.Name = "DoctorID";
-            this.DoctorID.ReadOnly = true;
-            this.DoctorID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // FullName
-            // 
-            this.FullName.HeaderText = "Full Name";
-            this.FullName.MinimumWidth = 6;
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            // 
-            // Specialization
-            // 
-            this.Specialization.HeaderText = "Specialization";
-            this.Specialization.MinimumWidth = 6;
-            this.Specialization.Name = "Specialization";
-            this.Specialization.ReadOnly = true;
-            // 
-            // Phone
-            // 
-            this.Phone.HeaderText = "Phone";
-            this.Phone.MinimumWidth = 6;
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
             // 
             // ucDoctors
             // 
@@ -336,7 +336,7 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucDoctors";
-            this.Size = new System.Drawing.Size(900, 569);
+            this.Size = new System.Drawing.Size(900, 570);
             this.Load += new System.EventHandler(this.ucDoctors_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoctors)).EndInit();
             this.cmsDoctor.ResumeLayout(false);

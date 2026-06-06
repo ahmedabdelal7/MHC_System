@@ -18,3 +18,4 @@ E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\bin\De
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucPatientscs.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucDoctors.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmAddEditDoctor.resources
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucConsultations.resources

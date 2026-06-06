@@ -61,7 +61,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.HoverState.Parent = this.btnDelete;
-            this.btnDelete.Location = new System.Drawing.Point(774, 187);
+            this.btnDelete.Location = new System.Drawing.Point(774, 188);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.ShadowDecoration.Parent = this.btnDelete;
@@ -78,7 +78,7 @@
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.HoverState.Parent = this.btnEdit;
-            this.btnEdit.Location = new System.Drawing.Point(774, 121);
+            this.btnEdit.Location = new System.Drawing.Point(774, 122);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ShadowDecoration.Parent = this.btnEdit;
@@ -95,7 +95,7 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Location = new System.Drawing.Point(774, 58);
+            this.btnAdd.Location = new System.Drawing.Point(774, 59);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
@@ -142,7 +142,7 @@
             this.dgvPatients.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvPatients.EnableHeadersVisualStyles = false;
             this.dgvPatients.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(201)))), ((int)(((byte)(231)))));
-            this.dgvPatients.Location = new System.Drawing.Point(0, 290);
+            this.dgvPatients.Location = new System.Drawing.Point(0, 291);
             this.dgvPatients.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPatients.MultiSelect = false;
             this.dgvPatients.Name = "dgvPatients";
@@ -238,7 +238,7 @@
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(598, 194);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(598, 195);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 6;
             this.guna2PictureBox1.TabStop = false;
@@ -263,7 +263,7 @@
             "ID",
             "Phone"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;
-            this.cbSearchBy.Location = new System.Drawing.Point(317, 233);
+            this.cbSearchBy.Location = new System.Drawing.Point(317, 234);
             this.cbSearchBy.Margin = new System.Windows.Forms.Padding(2);
             this.cbSearchBy.Name = "cbSearchBy";
             this.cbSearchBy.ShadowDecoration.Parent = this.cbSearchBy;
@@ -276,7 +276,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(232, 235);
+            this.label1.Location = new System.Drawing.Point(232, 236);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(2);
@@ -301,7 +301,7 @@
             this.txtSearch.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtSearch.IconLeft")));
             this.txtSearch.IconLeftOffset = new System.Drawing.Point(10, 0);
             this.txtSearch.IconLeftSize = new System.Drawing.Size(25, 25);
-            this.txtSearch.Location = new System.Drawing.Point(444, 233);
+            this.txtSearch.Location = new System.Drawing.Point(444, 234);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PasswordChar = '\0';
             this.txtSearch.PlaceholderText = "Search for Patient...";
@@ -327,7 +327,7 @@
             this.Controls.Add(this.guna2PictureBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ucPatientscs";
-            this.Size = new System.Drawing.Size(900, 569);
+            this.Size = new System.Drawing.Size(900, 570);
             this.Load += new System.EventHandler(this.ucPatientscs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPatients)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

@@ -3,10 +3,34 @@
   "WorkspaceRootPath": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MantCareConsole\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{362F66B8-7A59-4FE4-810B-BDC6EEBC084C}|..\\MentCareBussinessLayer\\MentCareBussinessLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarebussinesslayer\\clsconsultation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucconsultations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AF025CE-EACD-4C22-9E33-4F29BAC18CF4}|..\\MentCareDataAccessLayer\\MentCareDataAccessLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcaredataaccesslayer\\consultationdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucconsultations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucdoctors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucdoctors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{362F66B8-7A59-4FE4-810B-BDC6EEBC084C}|..\\MentCareBussinessLayer\\MentCareBussinessLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarebussinesslayer\\clsconsultation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\frmaddeditpatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucpatientscs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AF025CE-EACD-4C22-9E33-4F29BAC18CF4}|..\\MentCareDataAccessLayer\\MentCareDataAccessLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcaredataaccesslayer\\patientdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -15,19 +39,7 @@
       "AbsoluteMoniker": "D:0:0:{362F66B8-7A59-4FE4-810B-BDC6EEBC084C}|..\\MentCareBussinessLayer\\MentCareBussinessLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarebussinesslayer\\clspatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucdoctors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucdoctors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucpatientscs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\ucpatientscs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{362F66B8-7A59-4FE4-810B-BDC6EEBC084C}|..\\MentCareBussinessLayer\\MentCareBussinessLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarebussinesslayer\\clsdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -42,13 +54,7 @@
       "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\frmaddeditdoctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\frmaddeditpatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\frmaddeditpatient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8437CBE1-DA42-4BE0-AAD9-B0B0F97A6633}|..\\MentCarePresentationLayer\\MentCarePresentationLayer.csproj|e:\\projects\\mentcaresystemfolder\\mentcaresystem\\mentcarepresentationlayer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,11 +64,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\Form1.cs",
@@ -75,7 +81,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "frmAddEditPatient.cs [Design]",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditPatient.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs",
@@ -83,11 +89,12 @@
               "RelativeToolTip": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T23:27:59.998Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ucPatientscs.cs [Design]",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucPatientscs.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucPatientscs.cs",
@@ -95,11 +102,12 @@
               "RelativeToolTip": "..\\MentCarePresentationLayer\\ucPatientscs.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-25T16:38:31.599Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "ucDoctors.cs [Design]",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucDoctors.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucDoctors.cs",
@@ -107,20 +115,8 @@
               "RelativeToolTip": "..\\MentCarePresentationLayer\\ucDoctors.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-26T21:45:52.508Z",
-              "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "clsConsultation.cs",
-              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareBussinessLayer\\clsConsultation.cs",
-              "RelativeDocumentMoniker": "..\\MentCareBussinessLayer\\clsConsultation.cs",
-              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareBussinessLayer\\clsConsultation.cs",
-              "RelativeToolTip": "..\\MentCareBussinessLayer\\clsConsultation.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAwIIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T00:51:44.892Z",
-              "EditorCaption": ""
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -144,32 +140,71 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ucConsultations.cs [Design]",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucConsultations.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucConsultations.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucConsultations.cs [Design]",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\ucConsultations.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T15:07:41.782Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ucConsultations.cs",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucConsultations.cs",
+              "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucConsultations.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucConsultations.cs",
+              "RelativeToolTip": "..\\MentCarePresentationLayer\\ucConsultations.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAowC0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T15:27:37.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "clsConsultation.cs",
+              "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareBussinessLayer\\clsConsultation.cs",
+              "RelativeDocumentMoniker": "..\\MentCareBussinessLayer\\clsConsultation.cs",
+              "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareBussinessLayer\\clsConsultation.cs",
+              "RelativeToolTip": "..\\MentCareBussinessLayer\\clsConsultation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T00:51:44.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ConsultationData.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareDataAccessLayer\\ConsultationData.cs",
               "RelativeDocumentMoniker": "..\\MentCareDataAccessLayer\\ConsultationData.cs",
               "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareDataAccessLayer\\ConsultationData.cs",
               "RelativeToolTip": "..\\MentCareDataAccessLayer\\ConsultationData.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAEcBAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-05T20:55:10.195Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "ucDoctors.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucDoctors.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucDoctors.cs",
               "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucDoctors.cs",
               "RelativeToolTip": "..\\MentCarePresentationLayer\\ucDoctors.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAgwCAAAAA6AAAA",
+              "ViewState": "AQIAACcAAAAAAAAAAAAywAkAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-28T19:33:02.347Z"
+              "WhenOpened": "2026-05-28T19:33:02.347Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "frmAddEditDoctor.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditDoctor.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\frmAddEditDoctor.cs",
@@ -181,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "clsDoctor.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareBussinessLayer\\clsDoctor.cs",
               "RelativeDocumentMoniker": "..\\MentCareBussinessLayer\\clsDoctor.cs",
@@ -189,12 +224,11 @@
               "RelativeToolTip": "..\\MentCareBussinessLayer\\clsDoctor.cs",
               "ViewState": "AQIAAFcAAAAAAAAAAAAjwG8AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-27T06:59:39.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-27T06:59:39.821Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "DoctorData.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareDataAccessLayer\\DoctorData.cs",
               "RelativeDocumentMoniker": "..\\MentCareDataAccessLayer\\DoctorData.cs",
@@ -206,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "ucPatientscs.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\ucPatientscs.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\ucPatientscs.cs",
@@ -214,11 +248,12 @@
               "RelativeToolTip": "..\\MentCarePresentationLayer\\ucPatientscs.cs",
               "ViewState": "AQIAAIcAAAAAAAAAAAAlwMIAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T19:05:22.926Z"
+              "WhenOpened": "2026-05-25T19:05:22.926Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "clsPatient.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareBussinessLayer\\clsPatient.cs",
               "RelativeDocumentMoniker": "..\\MentCareBussinessLayer\\clsPatient.cs",
@@ -226,12 +261,11 @@
               "RelativeToolTip": "..\\MentCareBussinessLayer\\clsPatient.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T15:49:58.84Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T15:49:58.84Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "PatientData.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCareDataAccessLayer\\PatientData.cs",
               "RelativeDocumentMoniker": "..\\MentCareDataAccessLayer\\PatientData.cs",
@@ -239,12 +273,11 @@
               "RelativeToolTip": "..\\MentCareDataAccessLayer\\PatientData.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-26T15:11:29.304Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-26T15:11:29.304Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "frmAddEditPatient.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditPatient.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs",
@@ -252,23 +285,25 @@
               "RelativeToolTip": "..\\MentCarePresentationLayer\\frmAddEditPatient.cs",
               "ViewState": "AQIAAF4AAAAAAAAAAAAiwHIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T17:32:23.162Z"
+              "WhenOpened": "2026-05-25T17:32:23.162Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
               "Title": "Form1.cs",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\Form1.cs",
               "ToolTip": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\Form1.cs",
               "RelativeToolTip": "..\\MentCarePresentationLayer\\Form1.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAnwFAAAAAAAAAA",
+              "ViewState": "AQIAADQAAAAAAAAAAADwv04AAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-25T17:29:37.829Z"
+              "WhenOpened": "2026-05-25T17:29:37.829Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "frmAddEditDoctor.cs [Design]",
               "DocumentMoniker": "E:\\Projects\\MentCareSystemFolder\\MentCareSystem\\MentCarePresentationLayer\\frmAddEditDoctor.cs",
               "RelativeDocumentMoniker": "..\\MentCarePresentationLayer\\frmAddEditDoctor.cs",

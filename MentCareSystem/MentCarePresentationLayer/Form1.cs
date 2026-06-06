@@ -71,6 +71,12 @@ namespace MentCarePresentationLayer
 
         private void btnConsultations_Click(object sender, EventArgs e)
         {
+
+            ucConsultations consultations = new ucConsultations();
+            consultations.Dock = DockStyle.Fill;    
+
+            pnlContainer.Controls.Clear();
+            pnlContainer.Controls.Add(consultations);
             SetNavigationButtonsColor((Guna2Button)sender);
 
 

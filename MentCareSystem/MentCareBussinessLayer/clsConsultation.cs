@@ -4,7 +4,7 @@ using MentCareDataAccessLayer;
 
 namespace MentCareBussinessLayer
 {
-    internal class clsConsultation
+    public class clsConsultation
     {
 
         enum enMode
