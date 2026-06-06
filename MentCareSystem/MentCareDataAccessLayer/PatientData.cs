@@ -353,7 +353,7 @@ namespace MentCareDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Patients ORDER BY FirstName";
+            string query = @"SELECT * FROM Patients ORDER BY PatientID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
