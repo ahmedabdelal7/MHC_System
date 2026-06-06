@@ -26,22 +26,10 @@ namespace MentCarePresentationLayer
 
         private void _LoadPatients()
         {
-            dgvPatients.Rows.Clear();
+            dgvPatients.Columns.Clear();
             DataTable PatientsDT = clsPatient.ListAllPatients();
-
-            foreach (DataRow PatientRecord in PatientsDT.Rows) {
-
-
-
-                dgvPatients.Rows.Add(
-                    PatientRecord["PatientID"],
-                    PatientRecord["FirstName"] + " " + PatientRecord["LastName"],
-                    PatientRecord["Phone"],
-                    PatientRecord["Gender"]
-                );
-            }
+            dgvPatients.DataSource = PatientsDT;
             dgvPatients.SelectedCells[0].Selected = false;
-
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -63,7 +51,6 @@ namespace MentCarePresentationLayer
                 MessageBox.Show("Please Select Patient First");
                 return;
             }
-
 
             frmAddEditPatient frm = new frmAddEditPatient(PatientID);
             frm.ShowDialog();
@@ -121,103 +108,47 @@ namespace MentCarePresentationLayer
             Delete();
             _LoadPatients();
         }
-        private void SearchByID(int patientID)
+        private void SearchByID(string patientID)
         {
-            clsPatient patient;
-
-            patient = clsPatient.FindByID(patientID);
-            if(patient != null)
-            {
-                AddPatientToDataGridView(patient);
-            }
-
+            DataTable patientsDT = clsPatient.FindByID(patientID);
+            dgvPatients.DataSource = patientsDT;
         }
-
-        private void AddPatientToDataGridView(clsPatient patient)
+        private void SearchByName(string firstName)
         {
-            dgvPatients.Rows.Add(
-                patient.PatientID,
-                patient.FirstName +" "+patient.LastName,
-                patient.Phone,
-                patient.Gender
-            );
-        }
-        private clsPatient FillPatientObjectFromDataRow( DataRow patientRow)
-        {
-            clsPatient patient = new clsPatient();
-
-            patient.PatientID = (int)patientRow["PatientID"];
-            patient.FirstName = patientRow["FirstName"].ToString();
-
-            patient.LastName = (patientRow["LastName"] != DBNull.Value) ? (patientRow["LastName"].ToString()) : (patient.LastName = "");
-            patient.Gender = patientRow["Gender"].ToString();
-            patient.DateOfBirth = (DateTime)patientRow["DateOfBirth"];
-            patient.Phone = patientRow["Phone"].ToString() ;
-
-            patient.Address = (patientRow["Address"] != DBNull.Value) ? (patientRow["Address"].ToString()) : (patient.Address = "");
-            patient.EmergencyContact = (patientRow["EmergencyContact"] != DBNull.Value) ? (patientRow["EmergencyContact"].ToString()) : (patient.EmergencyContact = "");
-
-            return patient;
-
-        }
-        private void SearchByFirstName(string firstName)
-        {
-            clsPatient patient;
-
-            DataTable patientsDT = clsPatient.FindByFirstName(firstName);
-
-            if(patientsDT != null)
-            {
-                foreach(DataRow patientRow in patientsDT.Rows)
-                {
-                    patient = FillPatientObjectFromDataRow(patientRow);
-                    AddPatientToDataGridView(patient);
-                }
-            }
+            
+            DataTable patientsDT = clsPatient.FindByName(firstName);
+            dgvPatients.DataSource = patientsDT;
         }
         private void SearchByPhone(string phoneNumber)
         {
-            clsPatient patient;
-
             DataTable patientsDT = clsPatient.FindByPhone(phoneNumber);
-
-            if (patientsDT != null)
-            {
-                foreach (DataRow patientRow in patientsDT.Rows)
-                {
-                    patient = FillPatientObjectFromDataRow(patientRow);
-                    AddPatientToDataGridView(patient);
-                }
-            }
+            dgvPatients.DataSource = patientsDT;
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            //Thread.Sleep(500);
             string searchText = txtSearch.Text.ToString().Trim();
 
             if (txtSearch.Text.Length > 0 && !string.IsNullOrWhiteSpace(searchText))
             {
-                dgvPatients.Rows.Clear(); //Clear DataGrid From Results
-
                 if (cbSearchBy.SelectedItem.ToString() == "ID")
                 {
                     if (int.TryParse(searchText, out int patientID))
-                        SearchByID(patientID);                    
-
+                        SearchByID(searchText);
+                    return;
                 }
-                else if (cbSearchBy.SelectedItem.ToString() == "FirstName")
+                else if (cbSearchBy.SelectedItem.ToString() == "Name")
                 {
-                    SearchByFirstName(searchText.ToLower());
+                    SearchByName(searchText.ToLower());
+                    return;
                 }
                 else if (cbSearchBy.SelectedItem.ToString() == "Phone"){
 
                     SearchByPhone(searchText);
+                    return;
                 }
             }
             else
-                _LoadPatients();
-
-            
+                _LoadPatients();            
 
         }
 

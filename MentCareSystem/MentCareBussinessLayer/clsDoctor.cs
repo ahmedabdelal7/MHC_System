@@ -98,16 +98,20 @@ namespace MentCareBussinessLayer
         {
             clsDoctorData.stDoctor stDoctor = new clsDoctorData.stDoctor();
 
-            if(clsDoctorData.FindDoctorByID(DoctorID,ref stDoctor))
+            if(clsDoctorData.GetDoctorByID(DoctorID,ref stDoctor))
             {
                 return new clsDoctor(DoctorID, stDoctor.FirstName,stDoctor.LastName,stDoctor.Email,stDoctor.Phone,stDoctor.Specialization,stDoctor.HireDate);
             }
             return null;  
         }
 
+        public static DataTable FindByID(string DoctorID)
+        {
+            return clsDoctorData.GetDoctorByID(DoctorID);
+        }
         public static DataTable FindByName(string SearchName)
         {
-            return  clsDoctorData.FindDoctorByName(SearchName);
+            return  clsDoctorData.GetDoctorByName(SearchName);
 
         }
 
@@ -122,12 +126,8 @@ namespace MentCareBussinessLayer
 
         public static DataTable ListAllDoctors()
         {
-            DataTable DoctorsDT = clsDoctorData.GetAllDoctors();
+            return clsDoctorData.GetAllDoctors();
 
-            if(DoctorsDT.Rows.Count>0)
-                return DoctorsDT;
-
-            return null;
         }
     }
 }

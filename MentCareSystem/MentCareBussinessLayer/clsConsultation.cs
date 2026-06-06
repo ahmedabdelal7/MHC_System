@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Data;
+using System.Web;
 using MentCareDataAccessLayer;
 
 namespace MentCareBussinessLayer
 {
     public class clsConsultation
     {
-
         enum enMode
         {
             AddNew =0, Update =1
@@ -63,7 +63,6 @@ namespace MentCareBussinessLayer
             this.ConsultationID = clsConsultationData.AddConsultation(consultation);
             return this.ConsultationID > 0;
         }
-
         private bool _UpdateConsultation()
         {
             clsConsultationData.stConsultation consultation = new clsConsultationData.stConsultation();
@@ -76,42 +75,6 @@ namespace MentCareBussinessLayer
             consultation.TreatmentPlan = TreatmentPlan;
 
             return clsConsultationData.UpdateConsultation(consultation);
-        }
-
-        public static clsConsultation FindByID(int ID)
-        {
-            clsConsultationData.stConsultation consultation = new clsConsultationData.stConsultation();
-
-            if(clsConsultationData.FindConsultationByID(ID,ref consultation))
-            {
-                return new clsConsultation(consultation.ConsultationID, consultation.PatientID, consultation.DoctorID,
-                    consultation.ConsultationDate, consultation.Diagnosis, consultation.Notes, consultation.TreatmentPlan);
-            }
-            return null;
-        }
-
-        public static bool IsExist(int ID)
-        {
-            return clsConsultationData.IsConsultationExist(ID);
-        }
-
-        public static bool Delete(int ID)
-        {
-            return (clsConsultationData.DeleteConslutation(ID));
-        }
-
-        public static DataTable ListAllConsultations() {
-
-           return  clsConsultationData.GetAllConsultations(); 
-        }
-
-        public static DataTable FindByPatientName(string PatientName)
-        {
-            return clsConsultationData.FindByPatientName(PatientName);
-        }
-        public static DataTable FindByDoctorName(string DoctorName)
-        {
-            return clsConsultationData.FindByDoctorName(DoctorName);
         }
         public bool Save()
         {
@@ -128,6 +91,44 @@ namespace MentCareBussinessLayer
 
             }
             return false;
+        }
+        public static bool Delete(int ID)
+        {
+            return (clsConsultationData.DeleteConslutation(ID));
+        }
+        public static DataTable ListAllConsultations() {
+
+           return  clsConsultationData.GetAllConsultations(); 
+        }
+        public static bool IsExist(int ID)
+        {
+            return clsConsultationData.IsConsultationExist(ID);
+        }
+
+        public static clsConsultation FindByID(int ID)
+        {
+            clsConsultationData.stConsultation consultation = new clsConsultationData.stConsultation();
+
+            if(clsConsultationData.FindConsultationByID(ID,ref consultation))
+            {
+                return new clsConsultation(consultation.ConsultationID, consultation.PatientID, consultation.DoctorID,
+                    consultation.ConsultationDate, consultation.Diagnosis, consultation.Notes, consultation.TreatmentPlan);
+            }
+            return null;
+        }
+
+        public static DataTable FindByID(string ID)
+        {
+            return clsConsultationData.FindConsultationByID(ID);
+        }
+
+        public static DataTable FindByPatientName(string PatientName)
+        {
+            return clsConsultationData.FindByPatientName(PatientName);
+        }
+        public static DataTable FindByDoctorName(string DoctorName)
+        {
+            return clsConsultationData.FindByDoctorName(DoctorName);
         }
     }
     

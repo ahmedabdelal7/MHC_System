@@ -36,7 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblAddEditConsultation = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cbPatients = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.cbDoctors = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtNotes = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtDiagnosis = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbDoctors = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
             // 
             // btnSave
@@ -61,6 +61,7 @@
             this.btnSave.Size = new System.Drawing.Size(98, 50);
             this.btnSave.TabIndex = 26;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClose
             // 
@@ -76,11 +77,13 @@
             this.btnClose.Size = new System.Drawing.Size(98, 50);
             this.btnClose.TabIndex = 27;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dtConsultationDate
             // 
             this.dtConsultationDate.BorderRadius = 15;
             this.dtConsultationDate.CheckedState.Parent = this.dtConsultationDate;
+            this.dtConsultationDate.CustomFormat = "";
             this.dtConsultationDate.FillColor = System.Drawing.Color.White;
             this.dtConsultationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtConsultationDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -160,32 +163,7 @@
             this.cbPatients.Name = "cbPatients";
             this.cbPatients.ShadowDecoration.Parent = this.cbPatients;
             this.cbPatients.Size = new System.Drawing.Size(140, 36);
-            this.cbPatients.Sorted = true;
             this.cbPatients.TabIndex = 28;
-            // 
-            // cbDoctors
-            // 
-            this.cbDoctors.BackColor = System.Drawing.Color.Transparent;
-            this.cbDoctors.BorderRadius = 15;
-            this.cbDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbDoctors.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbDoctors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDoctors.FocusedColor = System.Drawing.Color.Empty;
-            this.cbDoctors.FocusedState.Parent = this.cbDoctors;
-            this.cbDoctors.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDoctors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbDoctors.FormattingEnabled = true;
-            this.cbDoctors.HoverState.Parent = this.cbDoctors;
-            this.cbDoctors.IntegralHeight = false;
-            this.cbDoctors.ItemHeight = 30;
-            this.cbDoctors.ItemsAppearance.Parent = this.cbDoctors;
-            this.cbDoctors.Location = new System.Drawing.Point(213, 213);
-            this.cbDoctors.MaxDropDownItems = 5;
-            this.cbDoctors.Name = "cbDoctors";
-            this.cbDoctors.ShadowDecoration.Parent = this.cbDoctors;
-            this.cbDoctors.Size = new System.Drawing.Size(140, 36);
-            this.cbDoctors.Sorted = true;
-            this.cbDoctors.TabIndex = 30;
             // 
             // label8
             // 
@@ -326,6 +304,29 @@
             this.txtDiagnosis.Size = new System.Drawing.Size(241, 36);
             this.txtDiagnosis.TabIndex = 38;
             // 
+            // cbDoctors
+            // 
+            this.cbDoctors.BackColor = System.Drawing.Color.Transparent;
+            this.cbDoctors.BorderRadius = 15;
+            this.cbDoctors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbDoctors.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDoctors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDoctors.FocusedColor = System.Drawing.Color.Empty;
+            this.cbDoctors.FocusedState.Parent = this.cbDoctors;
+            this.cbDoctors.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDoctors.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbDoctors.FormattingEnabled = true;
+            this.cbDoctors.HoverState.Parent = this.cbDoctors;
+            this.cbDoctors.IntegralHeight = false;
+            this.cbDoctors.ItemHeight = 30;
+            this.cbDoctors.ItemsAppearance.Parent = this.cbDoctors;
+            this.cbDoctors.Location = new System.Drawing.Point(204, 213);
+            this.cbDoctors.MaxDropDownItems = 5;
+            this.cbDoctors.Name = "cbDoctors";
+            this.cbDoctors.ShadowDecoration.Parent = this.cbDoctors;
+            this.cbDoctors.Size = new System.Drawing.Size(140, 36);
+            this.cbDoctors.TabIndex = 28;
+            // 
             // frmAddEditConsultation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,8 +337,8 @@
             this.Controls.Add(this.txtTreatmentPlan);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.cbDoctors);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.cbDoctors);
             this.Controls.Add(this.cbPatients);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
@@ -366,7 +367,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblAddEditConsultation;
         private Guna.UI2.WinForms.Guna2ComboBox cbPatients;
-        private Guna.UI2.WinForms.Guna2ComboBox cbDoctors;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -375,5 +375,6 @@
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2TextBox txtNotes;
         private Guna.UI2.WinForms.Guna2TextBox txtDiagnosis;
+        private Guna.UI2.WinForms.Guna2ComboBox cbDoctors;
     }
 }

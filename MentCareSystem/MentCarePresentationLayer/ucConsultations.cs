@@ -19,27 +19,39 @@ namespace MentCarePresentationLayer
 
         private void _LoadData()
         {
-            dgvConsultations.Rows.Clear();
+            dgvConsultations.Columns.Clear();
 
             DataTable ConsultationsDT  = clsConsultation.ListAllConsultations();
 
-            foreach (DataRow consultationRow in ConsultationsDT.Rows)
-            {
-                AddConsultationRowToDataGridView(consultationRow);
-            }
-            dgvConsultations.SelectedCells[0].Selected = false;
+            dgvConsultations.DataSource = ConsultationsDT;
+
+            //dgvConsultations.SelectedCells[0].Selected = false;
 
         }
 
-        private void AddConsultationRowToDataGridView(DataRow row)
+
+        private void ShowAddForm()
         {
-            DateTime date = (DateTime)row["ConsultationDate"];
-            dgvConsultations.Rows.Add(
-                row["ConsultationID"],
-                row["PatientName"],
-                row["DoctorName"],
-                $"{date.ToShortDateString()}  {date.ToShortTimeString()}"
-            );
+            Form frm = new frmAddEditConsultation(-1);
+            frm.ShowDialog();
+        }
+        private void ShowEditForm()
+        {
+
+            int ID;
+            try
+            {
+                ID = Convert.ToInt32(dgvConsultations.SelectedCells[0].Value);
+
+            }
+            catch
+            {
+                MessageBox.Show("Please select consultation first");
+                return;
+            }
+
+            Form frm = new frmAddEditConsultation(ID);
+            frm.ShowDialog();
         }
 
 
@@ -75,14 +87,16 @@ namespace MentCarePresentationLayer
             Delete();
             _LoadData();
         }
-
-        private void AddNew()
-        {
-            Form frm = new frmAddEditConsultation(-1);
-        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
+            ShowAddForm();
+            _LoadData();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ShowEditForm();
+            _LoadData();
         }
     }
 }

@@ -80,9 +80,14 @@ namespace MentCareBussinessLayer
 
         }
 
-        public static DataTable FindByFirstName(string FirstName)
+        public static DataTable FindByID(string PatientID)
         {
-            return clsPatientsData.GetPatientByFirstName(FirstName);
+            return clsPatientsData.GetPatientByID(PatientID);
+        }
+
+        public static DataTable FindByName(string PatientName)
+        {
+            return clsPatientsData.GetPatientByName(PatientName);
         }
 
         public static DataTable FindByPhone(string Phone)

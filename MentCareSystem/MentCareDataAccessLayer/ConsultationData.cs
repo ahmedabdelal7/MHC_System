@@ -214,10 +214,7 @@ namespace MentCareDataAccessLayer
                                 c.ConsultationID,
                                 p.FirstName + ' ' + ISNULL(p.LastName,'') AS PatientName,
                                 d.FirstName + ' ' + ISNULL(d.LastName,'') AS DoctorName,
-                                c.ConsultationDate,
-                                c.Diagnosis,
-                                c.Notes,
-                                c.TreatmentPlan
+                                c.ConsultationDate
                             FROM Consultations c
                             INNER JOIN Doctors d
                                 ON c.DoctorID = d.DoctorID
@@ -247,6 +244,42 @@ namespace MentCareDataAccessLayer
         //Patient Name
         //Doctor Name
         //Consultation ID
+
+        public static DataTable FindConsultationByID(string ConsultationID)
+        {
+            DataTable ConsultstionsDT = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT
+                                c.ConsultationID,
+                                p.FirstName + ' ' + ISNULL(p.LastName,'') AS PatientName,
+                                d.FirstName + ' ' + ISNULL(d.LastName,'') AS DoctorName,
+                                c.ConsultationDate
+                            FROM Consultations c
+                            INNER JOIN Doctors d
+                                ON c.DoctorID = d.DoctorID
+                            INNER JOIN Patients p
+                                ON c.PatientID = p.PatientID
+                            WHERE CAST(ConsultationID AS NVARCHAR(20))
+                                LIKE '%' + @ConsultationID + '%';";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@ConsultationID", SqlDbType.NVarChar,20).Value = ConsultationID;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    ConsultstionsDT.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            finally { connection.Close(); }
+            return ConsultstionsDT;
+        }
         public static DataTable FindByPatientName(string PatientName)
         {
             DataTable ConsultstionsDT = new DataTable();
@@ -256,10 +289,7 @@ namespace MentCareDataAccessLayer
                                 c.ConsultationID,
                                 p.FirstName + ' ' + ISNULL(p.LastName,'') AS PatientName,
                                 d.FirstName + ' ' + ISNULL(d.LastName,'') AS DoctorName,
-                                c.ConsultationDate,
-                                c.Diagnosis,
-                                c.Notes,
-                                c.TreatmentPlan
+                                c.ConsultationDate
                             FROM Consultations c
                             INNER JOIN Doctors d
                                 ON c.DoctorID = d.DoctorID
@@ -294,17 +324,14 @@ namespace MentCareDataAccessLayer
                                 c.ConsultationID,
                                 p.FirstName + ' ' + ISNULL(p.LastName,'') AS PatientName,
                                 d.FirstName + ' ' + ISNULL(d.LastName,'') AS DoctorName,
-                                c.ConsultationDate,
-                                c.Diagnosis,
-                                c.Notes,
-                                c.TreatmentPlan
+                                c.ConsultationDate
                             FROM Consultations c
                             INNER JOIN Doctors d
                                 ON c.DoctorID = d.DoctorID
                             INNER JOIN Patients p
                                 ON c.PatientID = p.PatientID
                             WHERE d.FirstName + ' ' + ISNULL(d.LastName,'')
-                                LIKE '%' + @DoctorName + '%'";
+                                LIKE '%' + @DoctorName + '%';";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@DoctorName", SqlDbType.NVarChar, 100).Value = DoctorName;

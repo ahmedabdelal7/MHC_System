@@ -113,7 +113,7 @@ namespace MentCareDataAccessLayer
                         EmergencyContact = (string)reader["EmergencyContact"];
                     else
                         EmergencyContact = "";
-
+                    reader.Close();
                 }
 
 
@@ -128,17 +128,20 @@ namespace MentCareDataAccessLayer
             return isFound;
         }
 
-        public static DataTable GetPatientByFirstName(string FirstName)
-        {
-            DataTable table = new DataTable();
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Patients WHERE FirstName LIKE @FirstName ORDER BY FirstName ASC";
+        public static DataTable GetPatientByID(string PatientID)
+        {
+            DataTable PatientsDT = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"SELECT PatientID, FirstName+' '+ ISNULL(LastName,'') AS FullName, Phone, Gender
+                            FROM Patients
+							WHERE CAST(PatientID AS NVARCHAR(20))
+                                LIKE '%' + @PatientID + '%';";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@FirstName", "%" + FirstName + "%");
-
+            command.Parameters.AddWithValue("@PatientID", PatientID);
 
             try
             {
@@ -146,27 +149,41 @@ namespace MentCareDataAccessLayer
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.HasRows)
-                {
-                    /*PatientID = (int)reader["PatientID"];
 
-                    FirstName = reader["FirstName"].ToString();
+                PatientsDT.Load(reader);
+                reader.Close();
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally { connection.Close(); }
+            return PatientsDT;
+        }
+        public static DataTable GetPatientByName(string PatientName)
+        {
+            DataTable table = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT PatientID, FirstName+' '+ ISNULL(LastName,'') AS FullName, Phone, Gender
+                            FROM Patients
+							WHERE FirstName+ ' ' + ISNULL(LastName,'')
+                                LIKE '%' + @PatientName + '%'";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PatientName", "%" + PatientName + "%");
 
 
-                    if (reader["LastName"] != DBNull.Value)
-                        LastName = reader["LastName"].ToString();
+            try
+            {
+                connection.Open();
 
-                    Gender = reader["Gender"].ToString();
-                    DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Phone = reader["Phone"].ToString();
+                SqlDataReader reader = command.ExecuteReader();
+                table.Load(reader);
+                reader.Close();
 
-                    if (reader["Address"] != DBNull.Value)
-                        Address = reader["Address"].ToString();
-
-                    if (reader["EmergencyContact"] != DBNull.Value)
-                        EmergencyContact = reader["EmergencyContact"].ToString();*/
-                    table.Load(reader);
-                }
             }
             catch (Exception ex)
             {
@@ -179,14 +196,15 @@ namespace MentCareDataAccessLayer
         public static DataTable GetPatientByPhoneNumber(string Phone)
         {
             
+            DataTable dataTable = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Patients WHERE Phone LIKE @Phone";
+            string query = @"SELECT PatientID, FirstName+' '+ISNULL(LastName,'') AS FullName, Phone, Gender
+                            FROM Patients WHERE Phone LIKE '%'+ @Phone +'%'";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@Phone", "%" +Phone+ "%");
-                    DataTable dataTable = new DataTable();
+            command.Parameters.AddWithValue("@Phone", Phone);
 
 
             try
@@ -195,27 +213,9 @@ namespace MentCareDataAccessLayer
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.HasRows)
-                {
-                    
-                /*  PatientID = (int)reader["PatientID"];
-                    FirstName = reader["FirstName"].ToString();
+                dataTable.Load(reader);
+                reader.Close();
 
-                    if (reader["LastName"] != DBNull.Value)
-                        LastName = reader["LastName"].ToString();
-
-                    Gender = reader["Gender"].ToString();
-
-                    DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Phone = reader["Phone"].ToString();
-
-                    if (reader["Address"] != DBNull.Value)
-                        Address = reader["Address"].ToString();
-
-                    if (reader["EmergencyContact"] != DBNull.Value)
-                        EmergencyContact = reader["EmergencyContact"].ToString();*/
-                    dataTable.Load(reader);
-                }
             }
             catch (Exception ex)
             {
@@ -247,6 +247,7 @@ namespace MentCareDataAccessLayer
                 {
                     isFound = true;
                 }
+                reader.Close();
             }catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -353,7 +354,8 @@ namespace MentCareDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Patients ORDER BY PatientID";
+            string query = @"SELECT PatientID, FirstName+' '+ISNULL(LastName,'') AS FullName, Phone, Gender
+                            FROM Patients ORDER BY PatientID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -364,6 +366,7 @@ namespace MentCareDataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
 
                 patientsDT.Load(reader);
+                reader.Close();
 
             }
             catch (Exception ex)

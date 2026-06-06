@@ -24,16 +24,9 @@ namespace MentCarePresentationLayer
         {
             DataTable doctorsDT = clsDoctor.ListAllDoctors();
 
-            dgvDoctors.Rows.Clear();
+            dgvDoctors.Columns.Clear();
 
-            if (doctorsDT != null)
-            {
-                foreach (DataRow doctorRow in doctorsDT.Rows)
-                {
-                    AddDoctorRowToDataGridView(doctorRow);
-
-                }
-            }
+            dgvDoctors.DataSource = doctorsDT;
             dgvDoctors.SelectedCells[0].Selected = false;
             
         }
@@ -128,41 +121,18 @@ namespace MentCarePresentationLayer
             _LoadDoctors();
         }
 
-        private void AddDoctorRowToDataGridView(DataRow doctorRow)
+        private void SearchByID(string ID)
         {
-            dgvDoctors.Rows.Add(
-                    doctorRow["DoctorID"].ToString(),
-                    doctorRow["FirstName"] + " " + doctorRow["LastName"],
-                    doctorRow["Specialization"],
-                    doctorRow["Phone"],
-                    doctorRow["Email"]
-                );
-        }
-        private void SearchByID(int ID)
-        {
-            clsDoctor doctor = clsDoctor.FindByID(ID);
-            if(doctor != null)
-            {
-                dgvDoctors.Rows.Add(
-                    doctor.DoctorID.ToString(),
-                    doctor.FirstName + " " + doctor.LastName,
-                    doctor.Specialization,
-                    doctor.Phone,
-                    doctor.Email
-                );
-            }/*else
-                _LoadDoctors();*/
+            DataTable DoctorsDT = clsDoctor.FindByID(ID);
+
+            dgvDoctors.DataSource = DoctorsDT;
+
         }
         private void SearchByName(string Name)
         {
             DataTable DoctorsDT = clsDoctor.FindByName(Name);
-            if(DoctorsDT != null)
-            {
-                foreach(DataRow doctorRow in DoctorsDT.Rows)
-                {
-                    AddDoctorRowToDataGridView(doctorRow);
-                }
-            }
+
+            dgvDoctors.DataSource= DoctorsDT;
             
         }
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -172,25 +142,22 @@ namespace MentCarePresentationLayer
 
             if(searchText.Length > 0 && !string.IsNullOrWhiteSpace(searchText)) {
 
-                        dgvDoctors.Rows.Clear();
                 if(cbSearchBy.SelectedItem.ToString() == "ID")
                 {
                     if (int.TryParse(searchText, out int ID))
-                    {
-                        SearchByID(ID);
-                    }
+                        SearchByID(searchText);
+                    return;
                 }
 
-                if(cbSearchBy.SelectedItem.ToString() == "FirstName")
+                if(cbSearchBy.SelectedItem.ToString() == "Name")
                 {
-                    searchText = txtSearch.Text.ToLower();
-                    SearchByName(searchText);
+                    SearchByName(txtSearch.Text.ToLower());
                 }
             }
             else
-            {
                 _LoadDoctors();
-            }
+
         }
+
     }
 }

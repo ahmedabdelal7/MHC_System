@@ -259,7 +259,7 @@
             this.cbSearchBy.HoverState.Parent = this.cbSearchBy;
             this.cbSearchBy.ItemHeight = 30;
             this.cbSearchBy.Items.AddRange(new object[] {
-            "FirstName",
+            "Name",
             "ID",
             "Phone"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;

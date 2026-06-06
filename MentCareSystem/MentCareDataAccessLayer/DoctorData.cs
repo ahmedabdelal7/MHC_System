@@ -107,10 +107,9 @@ namespace MentCareDataAccessLayer
             return rowsAffected > 0;
         }
 
-        public static bool FindDoctorByID(int DoctorID, ref stDoctor doctorInfo)
+        public static bool GetDoctorByID(int DoctorID, ref stDoctor doctorInfo)
         {
             bool isFound = false;
-
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = @"SELECT * FROM Doctors WHERE DoctorID = @DoctorID;";
@@ -155,18 +154,19 @@ namespace MentCareDataAccessLayer
 
         }
 
-        public static DataTable FindDoctorByName(string FirstName)
+        public static DataTable GetDoctorByID(string DoctorID)
         {
-
             DataTable doctorsDT = new DataTable();
-
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT * FROM Doctors WHERE FirstName LIKE @FirtsName;";
+            string query = @"SELECT DoctorID, FirstName+ ' '+ISNULL(LastName ,'') AS FullName, Specialization, Phone, Email
+                            FROM Doctors
+                            WHERE CAST(DoctorID AS NVARCHAR(20)) 
+                            LIKE '%' + @DoctorID +'%'";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@FirtsName", "%" + FirstName + "%");
+            command.Parameters.AddWithValue("@DoctorID", DoctorID);
+
 
             try
             {
@@ -174,12 +174,42 @@ namespace MentCareDataAccessLayer
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.HasRows)
-                {
-                    doctorsDT.Load(reader);
-                }
+                doctorsDT.Load(reader);
 
                 reader.Close();
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            finally { connection.Close(); }
+            return doctorsDT;
+        }
+
+        public static DataTable GetDoctorByName(string DoctorName)
+        {
+
+            DataTable doctorsDT = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT DoctorID, FirstName+ ' '+ISNULL(LastName ,'') AS FullName, Specialization, Phone, Email
+                            FROM Doctors
+                            WHERE FirstName+ ' '+ISNULL(LastName ,'')
+                                LIKE '%' + @DoctorName +'%'";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@DoctorName",  DoctorName );
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                doctorsDT.Load(reader);
+
+                reader.Close();
+
             }catch (Exception ex) { Console.WriteLine(ex); }
             finally { connection.Close(); }
             return doctorsDT;
@@ -190,7 +220,7 @@ namespace MentCareDataAccessLayer
             bool isFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"select * from Doctors where DoctorID = @DoctorID;";
+            string query = @"select Found = 1 from Doctors where DoctorID = @DoctorID;";
 
             SqlCommand command = new SqlCommand(query,connection);
 
@@ -199,14 +229,13 @@ namespace MentCareDataAccessLayer
             try
             {
                 connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                object result = command.ExecuteScalar();
 
-                if (reader.HasRows)
+                if (result != null)
                 {
                     isFound = true;
                    
                 }
-                reader.Close();
             }catch (Exception ex) { Console.WriteLine(ex.Message); }
             finally { connection.Close(); }
             return isFound;
@@ -235,7 +264,8 @@ namespace MentCareDataAccessLayer
         {
             DataTable doctorsDT = new DataTable(); 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"SELECT * FROM Doctors";
+            string query = @"SELECT DoctorID, FirstName+ ' '+ISNULL(LastName ,'') AS FullName, Specialization, Phone, Email
+                            FROM Doctors ORDER BY DoctorID;";
             SqlCommand command = new SqlCommand(query, connection);
 
             try
@@ -244,10 +274,9 @@ namespace MentCareDataAccessLayer
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                while (reader.HasRows) {
-                    doctorsDT.Load(reader);
-                }
+                doctorsDT.Load(reader);
                 reader.Close();
+
             }catch(Exception ex) { Console.WriteLine(ex.Message);}
             finally { connection.Close(); }
             return doctorsDT;
