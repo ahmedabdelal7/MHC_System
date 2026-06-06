@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
+using MentCareDataAccessLayer;
 
 namespace MentCareBussinessLayer
 {
@@ -47,9 +44,91 @@ namespace MentCareBussinessLayer
             this.Diagnosis = Diagnosis;
             this.Notes = Notes;
             this.TreatmentPlan = TreatmentPlan;
+
+            _Mode = enMode.Update;
         }
 
+        private bool _AddNewConsultation()
+        {
+            clsConsultationData.stConsultation consultation = new clsConsultationData.stConsultation();
 
+            //consultation.ConsultationID = ConsultationID;
+            consultation.PatientID = PatientID;
+            consultation.DoctorID= DoctorID;
+            consultation.ConsultationDate= ConsultationDate;
+            consultation.Diagnosis = Diagnosis;
+            consultation.Notes = Notes;
+            consultation.TreatmentPlan= TreatmentPlan;
+
+            this.ConsultationID = clsConsultationData.AddConsultation(consultation);
+            return this.ConsultationID > 0;
+        }
+
+        private bool _UpdateConsultation()
+        {
+            clsConsultationData.stConsultation consultation = new clsConsultationData.stConsultation();
+            consultation.ConsultationID = ConsultationID;
+            consultation.PatientID = PatientID;
+            consultation.DoctorID = DoctorID;
+            consultation.ConsultationDate = ConsultationDate;
+            consultation.Diagnosis = Diagnosis;
+            consultation.Notes = Notes;
+            consultation.TreatmentPlan = TreatmentPlan;
+
+            return clsConsultationData.UpdateConsultation(consultation);
+        }
+
+        public static clsConsultation FindByID(int ID)
+        {
+            clsConsultationData.stConsultation consultation = new clsConsultationData.stConsultation();
+
+            if(clsConsultationData.FindConsultationByID(ID,ref consultation))
+            {
+                return new clsConsultation(consultation.ConsultationID, consultation.PatientID, consultation.DoctorID,
+                    consultation.ConsultationDate, consultation.Diagnosis, consultation.Notes, consultation.TreatmentPlan);
+            }
+            return null;
+        }
+
+        public static bool IsExist(int ID)
+        {
+            return clsConsultationData.IsConsultationExist(ID);
+        }
+
+        public static bool Delete(int ID)
+        {
+            return (clsConsultationData.DeleteConslutation(ID));
+        }
+
+        public static DataTable ListAllConsultations() {
+
+           return  clsConsultationData.GetAllConsultations(); 
+        }
+
+        public static DataTable FindByPatientName(string PatientName)
+        {
+            return clsConsultationData.FindByPatientName(PatientName);
+        }
+        public static DataTable FindByDoctorName(string DoctorName)
+        {
+            return clsConsultationData.FindByDoctorName(DoctorName);
+        }
+        public bool Save()
+        {
+            switch (_Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewConsultation())
+                    {
+                        _Mode = enMode.Update;
+                        return true;
+                    }return false;
+                case enMode.Update:
+                    return _UpdateConsultation();
+
+            }
+            return false;
+        }
     }
     
 }

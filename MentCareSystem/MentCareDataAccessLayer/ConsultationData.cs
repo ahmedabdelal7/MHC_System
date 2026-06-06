@@ -10,7 +10,7 @@ using static MentCareDataAccessLayer.clsDoctorData;
 
 namespace MentCareDataAccessLayer
 {
-    internal class clsConsultationData
+    public static class clsConsultationData
     {
         public struct stConsultation
         {
@@ -285,7 +285,7 @@ namespace MentCareDataAccessLayer
             return ConsultstionsDT;
 
         }
-        public static DataTable FindByDoctortName(string DoctorName)
+        public static DataTable FindByDoctorName(string DoctorName)
         {
             DataTable ConsultstionsDT = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -324,5 +324,6 @@ namespace MentCareDataAccessLayer
             return ConsultstionsDT;
 
         }
+
     }
 }
