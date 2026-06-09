@@ -270,10 +270,9 @@ namespace MentCareDataAccessLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    ConsultstionsDT.Load(reader);
-                }
+
+                ConsultstionsDT.Load(reader);
+
                 reader.Close();
             }
             catch (Exception ex) { Console.WriteLine(ex); }
@@ -305,10 +304,9 @@ namespace MentCareDataAccessLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    ConsultstionsDT.Load(reader);
-                }
+
+                ConsultstionsDT.Load(reader);
+
                 reader.Close();
             }catch(Exception ex) { Console.WriteLine(ex); }
             finally { connection.Close(); }
@@ -340,10 +338,9 @@ namespace MentCareDataAccessLayer
             {
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    ConsultstionsDT.Load(reader);
-                }
+
+                ConsultstionsDT.Load(reader);
+
                 reader.Close();
             }
             catch (Exception ex) { Console.WriteLine(ex); }

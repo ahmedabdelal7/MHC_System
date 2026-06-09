@@ -111,5 +111,53 @@ namespace MentCarePresentationLayer
             Delete();
             _LoadData();
         }
+
+        private void SearchByID(string consultationID)
+        {
+
+            dgvConsultations.DataSource = clsConsultation.FindByID(consultationID);
+        }
+
+        private void SearchByPatientName(string patientName)
+        {
+            dgvConsultations.DataSource = clsConsultation.FindByPatientName(patientName);
+        }
+
+        private void SearchByDoctorName(string doctorName)
+        {
+            dgvConsultations.DataSource = clsConsultation.FindByDoctorName(doctorName);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+            string searchText = txtSearch.Text.ToString().Trim();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                 _LoadData();
+                return;
+            }
+
+            if(cbSearchBy.SelectedItem.ToString() == "ID"){
+
+                if (int.TryParse(searchText, out int ID))
+                    SearchByID(searchText);
+                return;
+            }
+
+            if(cbSearchBy.SelectedItem.ToString() == "PatientName")
+            {
+                SearchByPatientName(searchText.ToLower());
+                return;
+            }
+
+            if((cbSearchBy.SelectedItem.ToString() == "DoctorName")){
+
+                SearchByDoctorName(searchText.ToLower());
+                return;
+            }
+
+        }
     }
 }
