@@ -35,6 +35,7 @@ namespace MentCarePresentationLayer
             Form frm = new frmAddEditConsultation(-1);
             frm.ShowDialog();
         }
+        //Show Edit Consltation Form.
         private void ShowEditForm()
         {
 
@@ -54,7 +55,7 @@ namespace MentCarePresentationLayer
             frm.ShowDialog();
         }
 
-
+        //Delete Consltation.
         private void Delete()
         {
             if (dgvConsultations.SelectedCells.Count < 1)
@@ -96,6 +97,18 @@ namespace MentCarePresentationLayer
         private void btnEdit_Click(object sender, EventArgs e)
         {
             ShowEditForm();
+            _LoadData();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowEditForm();
+            _LoadData();
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Delete();
             _LoadData();
         }
     }

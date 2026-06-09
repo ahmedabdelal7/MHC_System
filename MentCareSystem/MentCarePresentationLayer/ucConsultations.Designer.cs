@@ -38,7 +38,7 @@
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ConsultDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmsDoctor = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsConsultation = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultations)).BeginInit();
-            this.cmsDoctor.SuspendLayout();
+            this.cmsConsultation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +80,7 @@
             this.PatientName,
             this.DoctorName,
             this.ConsultDate});
-            this.dgvConsultations.ContextMenuStrip = this.cmsDoctor;
+            this.dgvConsultations.ContextMenuStrip = this.cmsConsultation;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -151,26 +151,28 @@
             this.ConsultDate.Name = "ConsultDate";
             this.ConsultDate.ReadOnly = true;
             // 
-            // cmsDoctor
+            // cmsConsultation
             // 
-            this.cmsDoctor.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsDoctor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmsConsultation.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsConsultation.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.editToolStripMenuItem,
             this.DeleteToolStripMenuItem});
-            this.cmsDoctor.Name = "contextMenuStrip1";
-            this.cmsDoctor.Size = new System.Drawing.Size(108, 48);
+            this.cmsConsultation.Name = "contextMenuStrip1";
+            this.cmsConsultation.Size = new System.Drawing.Size(181, 70);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // DeleteToolStripMenuItem
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.DeleteToolStripMenuItem.Text = "Delete";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -324,7 +326,7 @@
             this.Size = new System.Drawing.Size(900, 570);
             this.Load += new System.EventHandler(this.ucConsultations_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultations)).EndInit();
-            this.cmsDoctor.ResumeLayout(false);
+            this.cmsConsultation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -333,7 +335,7 @@
 
         #endregion
         private Guna.UI2.WinForms.Guna2DataGridView dgvConsultations;
-        private System.Windows.Forms.ContextMenuStrip cmsDoctor;
+        private System.Windows.Forms.ContextMenuStrip cmsConsultation;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
         private System.Windows.Forms.Label label1;
