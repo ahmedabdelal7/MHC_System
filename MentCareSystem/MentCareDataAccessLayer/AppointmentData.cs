@@ -67,9 +67,6 @@ namespace MentCareDataAccessLayer
 
                 if(result != null && int.TryParse(result.ToString(),out int insertedID))
                     appointmentID = insertedID;
-
-
-
             }
             catch (Exception ex) { }
             finally { connection.Close(); }
@@ -267,16 +264,17 @@ namespace MentCareDataAccessLayer
 									WHEN 2 THEN 'Completed'
 									WHEN 3 THEN 'Cancelled'
 									WHEN 4 THEN 'No Show'
-								END AS STATUS
+								END AS status
                             FROM Appointments INNER JOIN
 	                            Doctors ON Appointments.DoctorID = Doctors.DoctorID INNER JOIN
 	                            Patients ON Appointments.PatientID = Patients.PatientID
                             WHERE Patients.FirstName+' '+ ISNULL(Patients.LastName,'') LIKE
-	                            '%'+ '@PatientName' +'%';";
+	                            '%'+ @PatientName +'%';";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.Add("@PatientName",SqlDbType.Int).Value = patientName;
+            command.Parameters.AddWithValue("@PatientName", patientName);
+            //command.Parameters.Add("@PatientName",SqlDbType.NVarChar,200).Value = patientName;
 
             try
             {
@@ -285,6 +283,7 @@ namespace MentCareDataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
 
                 appointmentsDT.Load(reader);
+
 
                 reader.Close();
 
@@ -313,7 +312,7 @@ namespace MentCareDataAccessLayer
 	                            Doctors ON Appointments.DoctorID = Doctors.DoctorID INNER JOIN
 	                            Patients ON Appointments.PatientID = Patients.PatientID
                             WHERE Doctors.FirstName+' '+ ISNULL(Doctors.LastName,'') LIKE
-	                            '%'+ '@DoctorName' +'%';";
+	                            '%'+ @DoctorName +'%';";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -366,5 +365,46 @@ namespace MentCareDataAccessLayer
             return isAvilable;
         }
 
+        public static DataTable FindAppointmentByID(string appointmentID)
+        {
+            DataTable appointmentsDT = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"SELECT Appointments.AppointmentID,
+	                            Patients.FirstName+' '+ ISNULL(Patients.LastName,'') AS PatientName,
+	                            Doctors.FirstName+' '+ ISNULL(Doctors.LastName,'') AS DoctorName,
+	                            Appointments.AppointmentDateTime,
+	                            CASE Appointments.Status
+									WHEN 1 THEN 'Scheduled'
+									WHEN 2 THEN 'Completed'
+									WHEN 3 THEN 'Cancelled'
+									WHEN 4 THEN 'No Show'
+								END AS Status
+                            FROM Appointments INNER JOIN
+	                            Doctors ON Appointments.DoctorID = Doctors.DoctorID INNER JOIN
+	                            Patients ON Appointments.PatientID = Patients.PatientID
+                            WHERE CAST(AppointmentID AS NVARCHAR) LIKE
+	                            '%'+ @AppointmentID +'%';";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@AppointmentID", SqlDbType.NVarChar, 200).Value = appointmentID;
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                appointmentsDT.Load(reader);
+
+                reader.Close();
+
+            }
+            catch (Exception ex) { }
+            finally { connection.Close(); }
+
+            return appointmentsDT;
+        }
     }
 }

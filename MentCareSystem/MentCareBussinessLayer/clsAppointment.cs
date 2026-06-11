@@ -19,12 +19,20 @@ namespace MentCareBussinessLayer
 
         enMode _Mode;
 
+        public enum enStatus
+        {
+            Scheduled = 1,
+            Completed = 2,
+            Cancelled = 3,
+            NoShow = 4
+        }
         public int AppointmentID {  get; set; }
         public int PatientID { get; set; }
         public int DoctorID { get; set; }
         public DateTime AppointmentDateTime { get; set; }
         public string Reason { get; set; }
         public string Notes { get; set; }
+        public enStatus Status { get; set; }
         public DateTime CreatedDate { get; set; }
 
 
@@ -37,11 +45,12 @@ namespace MentCareBussinessLayer
             Reason = string.Empty;
             Notes = string.Empty;
             CreatedDate = DateTime.Now;
+            Status = enStatus.Scheduled;
 
             _Mode = enMode.AddNew;
         }
 
-        private clsAppointment(int AppointmentID, int PatientID, int DoctorID, DateTime AppointmentDateTime, string Reason, string Notes, DateTime CreatedDate)
+        private clsAppointment(int AppointmentID, int PatientID, int DoctorID, DateTime AppointmentDateTime, enStatus Status, string Reason, string Notes, DateTime CreatedDate)
         {
             this.AppointmentID=AppointmentID;
             this.PatientID=PatientID;
@@ -49,6 +58,7 @@ namespace MentCareBussinessLayer
             this.AppointmentDateTime =AppointmentDateTime;
             this.Reason =Reason;
             this.Notes =Notes;
+            this.Status = Status;
             this.CreatedDate = CreatedDate;
 
             _Mode=enMode.Update;
@@ -64,6 +74,7 @@ namespace MentCareBussinessLayer
             appointment.AppointmentDateTime = AppointmentDateTime;
             appointment.Reason = Reason;
             appointment.Notes = Notes;
+            appointment.Status = (byte)Status;
             appointment.CreatedDate = CreatedDate;
 
 
@@ -81,6 +92,7 @@ namespace MentCareBussinessLayer
             appointment.AppointmentDateTime = AppointmentDateTime;
             appointment.Reason = Reason;
             appointment.Notes = Notes;
+            appointment.Status= (byte)Status;
             appointment.CreatedDate = CreatedDate;
 
             return clsAppointmentData.UpdateAppointment(appointment);
@@ -110,7 +122,7 @@ namespace MentCareBussinessLayer
             if(clsAppointmentData.FindAppointmentByID(ID,ref stAppointment))
             {
                 return new clsAppointment(stAppointment.AppointmentID,stAppointment.PatientID,stAppointment.DoctorID,stAppointment.AppointmentDateTime,
-                    stAppointment.Reason,stAppointment.Notes,stAppointment.CreatedDate);
+                    (enStatus)stAppointment.Status,stAppointment.Reason,stAppointment.Notes,stAppointment.CreatedDate);
             }
 
             return null;
@@ -138,6 +150,11 @@ namespace MentCareBussinessLayer
         public static DataTable FindByDoctorName(string DoctorName)
         {
             return clsAppointmentData.FindAppointmentByDoctorName(DoctorName);
+        }
+
+        public static DataTable FindByID(string DoctorName)
+        {
+            return clsAppointmentData.FindAppointmentByID(DoctorName);
         }
 
         public static bool IsDoctorAvilable(int DoctorID, DateTime dateTime)
