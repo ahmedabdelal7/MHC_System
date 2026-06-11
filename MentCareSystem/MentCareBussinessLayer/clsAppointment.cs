@@ -1,0 +1,148 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using MentCareDataAccessLayer;
+
+namespace MentCareBussinessLayer
+{
+    public class clsAppointment
+    {
+
+        enum enMode
+        {
+            AddNew = 0, Update
+        }
+
+        enMode _Mode;
+
+        public int AppointmentID {  get; set; }
+        public int PatientID { get; set; }
+        public int DoctorID { get; set; }
+        public DateTime AppointmentDateTime { get; set; }
+        public string Reason { get; set; }
+        public string Notes { get; set; }
+        public DateTime CreatedDate { get; set; }
+
+
+        public clsAppointment()
+        {
+            AppointmentID = 0;
+            PatientID = 0;
+            DoctorID = 0;
+            AppointmentDateTime = DateTime.Now;
+            Reason = string.Empty;
+            Notes = string.Empty;
+            CreatedDate = DateTime.Now;
+
+            _Mode = enMode.AddNew;
+        }
+
+        private clsAppointment(int AppointmentID, int PatientID, int DoctorID, DateTime AppointmentDateTime, string Reason, string Notes, DateTime CreatedDate)
+        {
+            this.AppointmentID=AppointmentID;
+            this.PatientID=PatientID;
+            this.DoctorID =DoctorID;
+            this.AppointmentDateTime =AppointmentDateTime;
+            this.Reason =Reason;
+            this.Notes =Notes;
+            this.CreatedDate = CreatedDate;
+
+            _Mode=enMode.Update;
+        }
+
+        private bool _AddNew()
+        {
+
+            clsAppointmentData.stAppointment appointment = new clsAppointmentData.stAppointment();
+            appointment.AppointmentID = AppointmentID;
+            appointment.PatientID = PatientID;
+            appointment.DoctorID = DoctorID;
+            appointment.AppointmentDateTime = AppointmentDateTime;
+            appointment.Reason = Reason;
+            appointment.Notes = Notes;
+            appointment.CreatedDate = CreatedDate;
+
+
+            int ID = clsAppointmentData.AddNewAppointment(appointment);
+
+            return ID >0;
+        }
+
+        private bool _Update() {
+
+            clsAppointmentData.stAppointment appointment = new clsAppointmentData.stAppointment();
+            appointment.AppointmentID = AppointmentID;
+            appointment.PatientID = PatientID;
+            appointment.DoctorID = DoctorID;
+            appointment.AppointmentDateTime = AppointmentDateTime;
+            appointment.Reason = Reason;
+            appointment.Notes = Notes;
+            appointment.CreatedDate = CreatedDate;
+
+            return clsAppointmentData.UpdateAppointment(appointment);
+        }
+
+        public bool Save()
+        {
+            switch (_Mode)
+            {
+                case enMode.AddNew:
+                    if(_AddNew())
+                    {
+                        _Mode = enMode.Update;
+                        return true;
+                    }return false;
+                case enMode.Update:
+                    return _Update();
+            }
+            return false;
+        }
+
+
+        public static clsAppointment FindByID(int ID)
+        {
+            clsAppointmentData.stAppointment stAppointment = new clsAppointmentData.stAppointment();  
+
+            if(clsAppointmentData.FindAppointmentByID(ID,ref stAppointment))
+            {
+                return new clsAppointment(stAppointment.AppointmentID,stAppointment.PatientID,stAppointment.DoctorID,stAppointment.AppointmentDateTime,
+                    stAppointment.Reason,stAppointment.Notes,stAppointment.CreatedDate);
+            }
+
+            return null;
+        }
+
+        public static bool IsExist(int ID)
+        {
+            return clsAppointmentData.IsExist(ID);
+        }
+        public static bool Delete(int ID)
+        {
+            
+            return (clsAppointmentData.DeleteAppointment(ID));
+        }
+
+        public static DataTable ListAllAppointments()
+        {
+            return clsAppointmentData.GetAllAppointments();
+        }
+
+        public static DataTable FindByPatientName(string PatientName)
+        {
+            return clsAppointmentData.FindAppointmentByPatientName(PatientName);
+        }
+        public static DataTable FindByDoctorName(string DoctorName)
+        {
+            return clsAppointmentData.FindAppointmentByDoctorName(DoctorName);
+        }
+
+        public static bool IsDoctorAvilable(int DoctorID, DateTime dateTime)
+        {
+            return clsAppointmentData.IsDoctorAvilable(DoctorID, dateTime);
+        }
+    }
+}
