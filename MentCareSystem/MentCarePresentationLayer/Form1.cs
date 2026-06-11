@@ -40,6 +40,12 @@ namespace MentCarePresentationLayer
             btnConsultations.ForeColor = Color.White;
             btnConsultations.FillColor = Color.Transparent;
 
+            btnDashboard.ForeColor = Color.White;   
+            btnDashboard.FillColor = Color.Transparent;
+
+            btnAppointments.ForeColor = Color.White;
+            btnAppointments.FillColor = Color.Transparent;
+
             selectedButton.ForeColor = Color.FromArgb(213, 185, 87);
             selectedButton.FillColor = Color.FromArgb(45, 45, 60);
         }
@@ -81,10 +87,31 @@ namespace MentCarePresentationLayer
 
 
         }
+        
 
         private void pnlContainer_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            //ucConsultations consultations = new ucConsultations();
+            //consultations.Dock = DockStyle.Fill;
+
+            pnlContainer.Controls.Clear();
+            //pnlContainer.Controls.Add(consultations);
+            SetNavigationButtonsColor((Guna2Button)sender);
+        }
+
+        private void btnAppointments_Click(object sender, EventArgs e)
+        {
+            ucAppointments appointments = new ucAppointments();
+            appointments.Dock = DockStyle.Fill;
+
+            pnlContainer.Controls.Clear();
+            pnlContainer.Controls.Add(appointments);
+            SetNavigationButtonsColor((Guna2Button)sender);
         }
     }
 }

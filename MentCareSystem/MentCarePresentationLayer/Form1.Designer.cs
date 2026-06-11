@@ -33,7 +33,10 @@
             this.btnDoctors = new Guna.UI2.WinForms.Guna2Button();
             this.btnConsultations = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnDashboard = new Guna.UI2.WinForms.Guna2Button();
             this.pnlContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.btnAppointments = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,10 +56,10 @@
             this.btnPatients.Image = ((System.Drawing.Image)(resources.GetObject("btnPatients.Image")));
             this.btnPatients.ImageOffset = new System.Drawing.Point(-20, 0);
             this.btnPatients.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnPatients.Location = new System.Drawing.Point(3, 99);
+            this.btnPatients.Location = new System.Drawing.Point(0, 195);
             this.btnPatients.Name = "btnPatients";
             this.btnPatients.ShadowDecoration.Parent = this.btnPatients;
-            this.btnPatients.Size = new System.Drawing.Size(286, 61);
+            this.btnPatients.Size = new System.Drawing.Size(295, 61);
             this.btnPatients.TabIndex = 0;
             this.btnPatients.Text = "Patients";
             this.btnPatients.TextOffset = new System.Drawing.Point(-15, 0);
@@ -78,10 +81,10 @@
             this.btnDoctors.Image = ((System.Drawing.Image)(resources.GetObject("btnDoctors.Image")));
             this.btnDoctors.ImageOffset = new System.Drawing.Point(-20, 0);
             this.btnDoctors.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnDoctors.Location = new System.Drawing.Point(3, 166);
+            this.btnDoctors.Location = new System.Drawing.Point(3, 262);
             this.btnDoctors.Name = "btnDoctors";
             this.btnDoctors.ShadowDecoration.Parent = this.btnDoctors;
-            this.btnDoctors.Size = new System.Drawing.Size(286, 61);
+            this.btnDoctors.Size = new System.Drawing.Size(289, 61);
             this.btnDoctors.TabIndex = 0;
             this.btnDoctors.Text = "Doctors";
             this.btnDoctors.TextOffset = new System.Drawing.Point(-15, 0);
@@ -101,20 +104,24 @@
             this.btnConsultations.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
             this.btnConsultations.HoverState.Parent = this.btnConsultations;
             this.btnConsultations.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultations.Image")));
-            this.btnConsultations.ImageOffset = new System.Drawing.Point(-5, 0);
+            this.btnConsultations.ImageOffset = new System.Drawing.Point(-8, 0);
             this.btnConsultations.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnConsultations.Location = new System.Drawing.Point(3, 233);
+            this.btnConsultations.Location = new System.Drawing.Point(-3, 396);
             this.btnConsultations.Name = "btnConsultations";
             this.btnConsultations.ShadowDecoration.Parent = this.btnConsultations;
-            this.btnConsultations.Size = new System.Drawing.Size(286, 61);
+            this.btnConsultations.Size = new System.Drawing.Size(289, 61);
             this.btnConsultations.TabIndex = 0;
             this.btnConsultations.Text = "Consultations";
+            this.btnConsultations.TextOffset = new System.Drawing.Point(-1, 0);
             this.btnConsultations.Click += new System.EventHandler(this.btnConsultations_Click);
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.guna2Separator1);
+            this.guna2Panel1.Controls.Add(this.btnAppointments);
             this.guna2Panel1.Controls.Add(this.btnConsultations);
             this.guna2Panel1.Controls.Add(this.btnDoctors);
+            this.guna2Panel1.Controls.Add(this.btnDashboard);
             this.guna2Panel1.Controls.Add(this.btnPatients);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(35)))));
@@ -123,6 +130,31 @@
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(295, 719);
             this.guna2Panel1.TabIndex = 5;
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.AutoRoundedCorners = true;
+            this.btnDashboard.BackColor = System.Drawing.Color.Transparent;
+            this.btnDashboard.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDashboard.BorderRadius = 29;
+            this.btnDashboard.CheckedState.Parent = this.btnDashboard;
+            this.btnDashboard.CustomImages.Parent = this.btnDashboard;
+            this.btnDashboard.FillColor = System.Drawing.Color.Transparent;
+            this.btnDashboard.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
+            this.btnDashboard.HoverState.Parent = this.btnDashboard;
+            this.btnDashboard.Image = ((System.Drawing.Image)(resources.GetObject("btnDashboard.Image")));
+            this.btnDashboard.ImageOffset = new System.Drawing.Point(-15, 0);
+            this.btnDashboard.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 66);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.ShadowDecoration.Parent = this.btnDashboard;
+            this.btnDashboard.Size = new System.Drawing.Size(295, 61);
+            this.btnDashboard.TabIndex = 0;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.TextOffset = new System.Drawing.Point(-12, 0);
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // pnlContainer
             // 
@@ -134,6 +166,39 @@
             this.pnlContainer.Size = new System.Drawing.Size(968, 719);
             this.pnlContainer.TabIndex = 7;
             this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Separator1.Location = new System.Drawing.Point(-3, 152);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(295, 10);
+            this.guna2Separator1.TabIndex = 0;
+            // 
+            // btnAppointments
+            // 
+            this.btnAppointments.AutoRoundedCorners = true;
+            this.btnAppointments.BackColor = System.Drawing.Color.Transparent;
+            this.btnAppointments.BorderColor = System.Drawing.Color.Transparent;
+            this.btnAppointments.BorderRadius = 29;
+            this.btnAppointments.CheckedState.Parent = this.btnAppointments;
+            this.btnAppointments.CustomImages.Parent = this.btnAppointments;
+            this.btnAppointments.FillColor = System.Drawing.Color.Transparent;
+            this.btnAppointments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppointments.ForeColor = System.Drawing.Color.White;
+            this.btnAppointments.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(45)))));
+            this.btnAppointments.HoverState.Parent = this.btnAppointments;
+            this.btnAppointments.Image = ((System.Drawing.Image)(resources.GetObject("btnAppointments.Image")));
+            this.btnAppointments.ImageOffset = new System.Drawing.Point(-8, 0);
+            this.btnAppointments.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnAppointments.Location = new System.Drawing.Point(3, 329);
+            this.btnAppointments.Name = "btnAppointments";
+            this.btnAppointments.ShadowDecoration.Parent = this.btnAppointments;
+            this.btnAppointments.Size = new System.Drawing.Size(289, 61);
+            this.btnAppointments.TabIndex = 0;
+            this.btnAppointments.Text = "Appointments";
+            this.btnAppointments.TextOffset = new System.Drawing.Point(-3, 0);
+            this.btnAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
             // 
             // Form1
             // 
@@ -158,6 +223,9 @@
         private Guna.UI2.WinForms.Guna2Button btnConsultations;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel pnlContainer;
+        private Guna.UI2.WinForms.Guna2Button btnDashboard;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
+        private Guna.UI2.WinForms.Guna2Button btnAppointments;
     }
 }
 

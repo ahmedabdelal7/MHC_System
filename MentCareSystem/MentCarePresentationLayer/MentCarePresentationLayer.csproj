@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>MentCarePresentationLayer</RootNamespace>
     <AssemblyName>MentCarePresentationLayer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FastUI, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\MantCareConsole\packages\FastUI.WinForms.1.1.0\lib\net48\FastUI.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.UI2">
       <HintPath>C:\Guna UI\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
@@ -57,6 +61,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddEditAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddEditAppointment.Designer.cs">
+      <DependentUpon>frmAddEditAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddEditConsultation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +87,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucAppointments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucAppointments.Designer.cs">
+      <DependentUpon>ucAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucConsultations.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,6 +114,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEditAppointment.resx">
+      <DependentUpon>frmAddEditAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddEditConsultation.resx">
       <DependentUpon>frmAddEditConsultation.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,7 +134,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucAppointments.resx">
+      <DependentUpon>ucAppointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucConsultations.resx">
       <DependentUpon>ucConsultations.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +149,7 @@
       <DependentUpon>ucPatientscs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App1.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

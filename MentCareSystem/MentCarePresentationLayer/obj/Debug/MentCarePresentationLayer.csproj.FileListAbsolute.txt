@@ -20,3 +20,6 @@ E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\De
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmAddEditDoctor.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucConsultations.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmAddEditConsultation.resources
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\bin\Debug\FastUI.dll
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucAppointments.resources
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmAddEditAppointment.resources
