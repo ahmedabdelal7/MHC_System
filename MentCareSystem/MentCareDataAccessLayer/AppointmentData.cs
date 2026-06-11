@@ -334,7 +334,7 @@ namespace MentCareDataAccessLayer
 
             return appointmentsDT;
         }
-        public static bool IsDoctorAvilable(int DoctorID, DateTime dateTime)
+        public static bool IsDoctorAvilable(int DoctorID, DateTime AppointmentDateTime)
         {
             bool isAvilable = false;
 
@@ -349,13 +349,15 @@ namespace MentCareDataAccessLayer
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@DoctorID", SqlDbType.Int).Value = DoctorID;
-            command.Parameters.Add("@DateTime", SqlDbType.DateTime).Value = dateTime;
+            command.Parameters.Add("@AppointmentDateTime", SqlDbType.DateTime).Value = AppointmentDateTime;
 
             try
             {
                 connection.Open();
 
                 object result = command.ExecuteScalar();
+
+                //If not founded rows -> set avilable = true 
 
                 isAvilable = (result == null);
             }
