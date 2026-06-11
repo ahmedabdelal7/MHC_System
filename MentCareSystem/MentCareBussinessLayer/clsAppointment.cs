@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -67,6 +68,9 @@ namespace MentCareBussinessLayer
         private bool _AddNew()
         {
 
+            if(!IsDoctorAvilable(DoctorID,AppointmentDateTime))
+                return false;
+
             clsAppointmentData.stAppointment appointment = new clsAppointmentData.stAppointment();
             appointment.AppointmentID = AppointmentID;
             appointment.PatientID = PatientID;
@@ -84,6 +88,9 @@ namespace MentCareBussinessLayer
         }
 
         private bool _Update() {
+
+            /*if (!IsDoctorAvilable(DoctorID, AppointmentDateTime))
+                return false;*/
 
             clsAppointmentData.stAppointment appointment = new clsAppointmentData.stAppointment();
             appointment.AppointmentID = AppointmentID;
@@ -160,6 +167,51 @@ namespace MentCareBussinessLayer
         public static bool IsDoctorAvilable(int DoctorID, DateTime dateTime)
         {
             return clsAppointmentData.IsDoctorAvilable(DoctorID, dateTime);
+        }
+
+        public bool CancelAppointment()
+        {
+            if (_SetAppointmentStatus(enStatus.Cancelled))
+                return Save();
+            return false;
+        }
+        public bool CompleteAppointment()
+        {
+            if (_SetAppointmentStatus(enStatus.Completed))
+                return Save();
+            return false;
+        }
+
+        public bool MarkAppointmentAsNoShow()
+        {
+            if (_SetAppointmentStatus(enStatus.NoShow))
+                return Save();
+            return false;
+        }
+
+        public bool ReScheduleAppointment(DateTime NewAppoDateTime)
+        {
+            this.AppointmentDateTime = NewAppoDateTime;
+            if( _SetAppointmentStatus(enStatus.Scheduled))
+                return Save();
+            return false;
+        }
+        private bool _SetAppointmentStatus(enStatus NewStatus)
+        {
+            //Here we Re schudule the appointment
+            if (NewStatus == enStatus.Scheduled && this.Status == enStatus.NoShow)
+            {
+                this.Status = enStatus.Scheduled;
+                return true;
+            }
+             
+            //Set object status from schuduled to (Completed or Cancelled or NoShow)
+            if(this.Status == enStatus.Scheduled)
+            {
+                this.Status= NewStatus;
+                return true;
+            }
+            return false;
         }
     }
 }
