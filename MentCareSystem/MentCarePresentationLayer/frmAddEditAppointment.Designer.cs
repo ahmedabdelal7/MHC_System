@@ -37,12 +37,12 @@
             this.cbPatients = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.dtAppointmentDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblAppointmentID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblAddEditAppointment = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.dtAppointmentDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // txtNotes
@@ -216,25 +216,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // dtAppointmentDate
-            // 
-            this.dtAppointmentDate.BorderRadius = 15;
-            this.dtAppointmentDate.CheckedState.Parent = this.dtAppointmentDate;
-            this.dtAppointmentDate.CustomFormat = "";
-            this.dtAppointmentDate.FillColor = System.Drawing.Color.White;
-            this.dtAppointmentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dtAppointmentDate.HoverState.Parent = this.dtAppointmentDate;
-            this.dtAppointmentDate.Location = new System.Drawing.Point(424, 218);
-            this.dtAppointmentDate.Margin = new System.Windows.Forms.Padding(2);
-            this.dtAppointmentDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtAppointmentDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtAppointmentDate.Name = "dtAppointmentDate";
-            this.dtAppointmentDate.ShadowDecoration.Parent = this.dtAppointmentDate;
-            this.dtAppointmentDate.Size = new System.Drawing.Size(241, 36);
-            this.dtAppointmentDate.TabIndex = 45;
-            this.dtAppointmentDate.Value = new System.DateTime(2026, 6, 11, 5, 28, 29, 0);
-            // 
             // lblAppointmentID
             // 
             this.lblAppointmentID.AutoSize = true;
@@ -290,11 +271,25 @@
             this.lblAddEditAppointment.TabIndex = 39;
             this.lblAddEditAppointment.Text = "Add New Appointment";
             // 
+            // dtAppointmentDate
+            // 
+            this.dtAppointmentDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtAppointmentDate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.dtAppointmentDate.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            this.dtAppointmentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtAppointmentDate.Location = new System.Drawing.Point(424, 219);
+            this.dtAppointmentDate.Name = "dtAppointmentDate";
+            this.dtAppointmentDate.ShowUpDown = true;
+            this.dtAppointmentDate.Size = new System.Drawing.Size(241, 26);
+            this.dtAppointmentDate.TabIndex = 55;
+            // 
             // frmAddEditAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 704);
+            this.Controls.Add(this.dtAppointmentDate);
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.txtReason);
             this.Controls.Add(this.label6);
@@ -304,7 +299,6 @@
             this.Controls.Add(this.cbPatients);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dtAppointmentDate);
             this.Controls.Add(this.lblAppointmentID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -328,11 +322,11 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbPatients;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnClose;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtAppointmentDate;
         private System.Windows.Forms.Label lblAppointmentID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblAddEditAppointment;
+        private System.Windows.Forms.DateTimePicker dtAppointmentDate;
     }
 }

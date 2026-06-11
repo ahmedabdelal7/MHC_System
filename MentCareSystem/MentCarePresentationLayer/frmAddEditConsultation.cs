@@ -123,7 +123,15 @@ namespace MentCarePresentationLayer
 
             _Consultation.PatientID = (int)cbPatients.SelectedValue;
             _Consultation.DoctorID = (int)cbDoctors.SelectedValue;
-            _Consultation.ConsultationDate = (DateTime)dtConsultationDate.Value;
+            _Consultation.ConsultationDate = new DateTime
+            (
+                dtConsultationDate.Value.Year,
+                dtConsultationDate.Value.Month,
+                dtConsultationDate.Value.Day,
+                dtConsultationDate.Value.Hour,
+                dtConsultationDate.Value.Minute,
+                0
+            );
             _Consultation.Diagnosis = txtDiagnosis.Text;
             _Consultation.TreatmentPlan = txtTreatmentPlan.Text;
             _Consultation.Notes = txtNotes.Text;

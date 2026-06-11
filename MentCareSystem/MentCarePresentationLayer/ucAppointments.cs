@@ -155,5 +155,96 @@ namespace MentCarePresentationLayer
                 return;
             }
         }
+
+
+        private bool CompleteAppointment(clsAppointment appointment)
+        {
+
+            DialogResult dialogResult = MessageBox.Show($"Are You Sure You Want To Complete This Appointment [{appointment.AppointmentID}] ?",
+                "Confirm Message", MessageBoxButtons.YesNo,MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+
+            if (dialogResult != DialogResult.Yes)
+                return false;
+
+            if (!clsAppointment.IsExist(appointment.AppointmentID))
+                return false;
+
+            return (appointment.CompleteAppointment());
+
+        }
+
+        private bool CancelAppointment(clsAppointment appointment)
+        {
+
+            DialogResult dialogResult = MessageBox.Show($"Are You Sure You Want To Cancel This Appointment [{appointment.AppointmentID}] ?",
+                "Confirm Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+
+            if (dialogResult != DialogResult.Yes)
+                return false;
+
+            if (!clsAppointment.IsExist(appointment.AppointmentID))
+                return false;
+
+            return (appointment.CancelAppointment());
+
+        }
+
+        private bool MarkAppointmentAsNoShow(clsAppointment appointment)
+        {
+
+            DialogResult dialogResult = MessageBox.Show($"Are You Sure You Want To Mark This Appointment As NoShow [{appointment.AppointmentID}] ?",
+                "Confirm Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+
+
+            if (dialogResult != DialogResult.Yes)
+                return false;
+
+            if (!clsAppointment.IsExist(appointment.AppointmentID))
+                return false;
+
+            return (appointment.MarkAppointmentAsNoShow());
+
+        }
+
+        private void CompleteAppointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsAppointment appointment = clsAppointment.FindByID(Convert.ToInt32(dgvAppointments.SelectedCells[0].Value));
+
+
+            if (CompleteAppointment(appointment))
+                MessageBox.Show($"Appointment [{appointment.AppointmentID}] Marked As (Completed) Successfully.");
+            else MessageBox.Show($"Operation Not Succeded!");
+
+            _LoadData();
+
+
+        }
+
+        private void cancelAppointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            clsAppointment appointment = clsAppointment.FindByID(Convert.ToInt32(dgvAppointments.SelectedCells[0].Value));
+
+
+            if (CancelAppointment(appointment))
+                MessageBox.Show($"Appointment [{appointment.AppointmentID}] Marked As (Cancelled) Successfully.");
+            else MessageBox.Show($"Operation Not Succeded!");
+
+            _LoadData();
+        }
+
+        private void markAsNoShowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsAppointment appointment = clsAppointment.FindByID(Convert.ToInt32(dgvAppointments.SelectedCells[0].Value));
+
+
+            if (MarkAppointmentAsNoShow(appointment))
+                MessageBox.Show($"Appointment [{appointment.AppointmentID}] Marked As (NoShow) Successfully.");
+            else MessageBox.Show($"Operation Not Succeded!");
+
+            _LoadData();
+        }
     }
 }

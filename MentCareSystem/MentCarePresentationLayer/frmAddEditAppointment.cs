@@ -125,7 +125,15 @@ namespace MentCarePresentationLayer
 
             _Appointment.PatientID = (int)cbPatients.SelectedValue;
             _Appointment.DoctorID = (int)cbDoctors.SelectedValue;
-            _Appointment.AppointmentDateTime = (DateTime)dtAppointmentDate.Value;
+            _Appointment.AppointmentDateTime = new DateTime
+                (
+                    dtAppointmentDate.Value.Year,
+                    dtAppointmentDate.Value.Month,
+                    dtAppointmentDate.Value.Day,
+                    dtAppointmentDate.Value.Hour,
+                    dtAppointmentDate.Value.Minute,
+                    0
+                );
             _Appointment.Reason = txtReason.Text;
             _Appointment.Notes = txtNotes.Text;
             //_Appointment.Status = clsAppointment.enStatus.Scheduled;

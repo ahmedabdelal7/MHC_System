@@ -34,24 +34,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucAppointments));
             this.dgvAppointments = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.cmsAppointments = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
-            this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.AppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addNewAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsAppointments = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CompleteAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.markAsNoShowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
             this.cmsAppointments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -132,6 +132,36 @@
             this.dgvAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(169)))), ((int)(((byte)(107)))));
             this.dgvAppointments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             // 
+            // AppointmentID
+            // 
+            this.AppointmentID.HeaderText = "AppointmentID";
+            this.AppointmentID.Name = "AppointmentID";
+            this.AppointmentID.ReadOnly = true;
+            // 
+            // PatientName
+            // 
+            this.PatientName.HeaderText = "PatientName";
+            this.PatientName.Name = "PatientName";
+            this.PatientName.ReadOnly = true;
+            // 
+            // DoctorName
+            // 
+            this.DoctorName.HeaderText = "DoctorName";
+            this.DoctorName.Name = "DoctorName";
+            this.DoctorName.ReadOnly = true;
+            // 
+            // AppointmentDate
+            // 
+            this.AppointmentDate.HeaderText = "AppointmentDate";
+            this.AppointmentDate.Name = "AppointmentDate";
+            this.AppointmentDate.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
             // cmsAppointments
             // 
             this.cmsAppointments.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -144,7 +174,20 @@
             this.cancelAppointmentToolStripMenuItem,
             this.markAsNoShowToolStripMenuItem});
             this.cmsAppointments.Name = "contextMenuStrip1";
-            this.cmsAppointments.Size = new System.Drawing.Size(201, 158);
+            this.cmsAppointments.Size = new System.Drawing.Size(201, 180);
+            // 
+            // showToolStripMenuItem
+            // 
+            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.showToolStripMenuItem.Text = "ShowDetails";
+            // 
+            // addNewAppointmentToolStripMenuItem
+            // 
+            this.addNewAppointmentToolStripMenuItem.Name = "addNewAppointmentToolStripMenuItem";
+            this.addNewAppointmentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.addNewAppointmentToolStripMenuItem.Text = "Add New Appointment";
+            this.addNewAppointmentToolStripMenuItem.Click += new System.EventHandler(this.addNewAppointmentToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -159,6 +202,27 @@
             this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
             this.DeleteToolStripMenuItem.Text = "Delete";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+            // 
+            // CompleteAppointmentToolStripMenuItem
+            // 
+            this.CompleteAppointmentToolStripMenuItem.Name = "CompleteAppointmentToolStripMenuItem";
+            this.CompleteAppointmentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.CompleteAppointmentToolStripMenuItem.Text = "Complete Appointment";
+            this.CompleteAppointmentToolStripMenuItem.Click += new System.EventHandler(this.CompleteAppointmentToolStripMenuItem_Click);
+            // 
+            // cancelAppointmentToolStripMenuItem
+            // 
+            this.cancelAppointmentToolStripMenuItem.Name = "cancelAppointmentToolStripMenuItem";
+            this.cancelAppointmentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.cancelAppointmentToolStripMenuItem.Text = "Cancel Appointment";
+            this.cancelAppointmentToolStripMenuItem.Click += new System.EventHandler(this.cancelAppointmentToolStripMenuItem_Click);
+            // 
+            // markAsNoShowToolStripMenuItem
+            // 
+            this.markAsNoShowToolStripMenuItem.Name = "markAsNoShowToolStripMenuItem";
+            this.markAsNoShowToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.markAsNoShowToolStripMenuItem.Text = "Mark As No Show";
+            this.markAsNoShowToolStripMenuItem.Click += new System.EventHandler(this.markAsNoShowToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -261,67 +325,6 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 30;
             this.guna2PictureBox1.TabStop = false;
-            // 
-            // AppointmentID
-            // 
-            this.AppointmentID.HeaderText = "AppointmentID";
-            this.AppointmentID.Name = "AppointmentID";
-            this.AppointmentID.ReadOnly = true;
-            // 
-            // PatientName
-            // 
-            this.PatientName.HeaderText = "PatientName";
-            this.PatientName.Name = "PatientName";
-            this.PatientName.ReadOnly = true;
-            // 
-            // DoctorName
-            // 
-            this.DoctorName.HeaderText = "DoctorName";
-            this.DoctorName.Name = "DoctorName";
-            this.DoctorName.ReadOnly = true;
-            // 
-            // AppointmentDate
-            // 
-            this.AppointmentDate.HeaderText = "AppointmentDate";
-            this.AppointmentDate.Name = "AppointmentDate";
-            this.AppointmentDate.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // addNewAppointmentToolStripMenuItem
-            // 
-            this.addNewAppointmentToolStripMenuItem.Name = "addNewAppointmentToolStripMenuItem";
-            this.addNewAppointmentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.addNewAppointmentToolStripMenuItem.Text = "Add New Appointment";
-            this.addNewAppointmentToolStripMenuItem.Click += new System.EventHandler(this.addNewAppointmentToolStripMenuItem_Click);
-            // 
-            // showToolStripMenuItem
-            // 
-            this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.showToolStripMenuItem.Text = "ShowDetails";
-            // 
-            // CompleteAppointmentToolStripMenuItem
-            // 
-            this.CompleteAppointmentToolStripMenuItem.Name = "CompleteAppointmentToolStripMenuItem";
-            this.CompleteAppointmentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.CompleteAppointmentToolStripMenuItem.Text = "Complete Appointment";
-            // 
-            // cancelAppointmentToolStripMenuItem
-            // 
-            this.cancelAppointmentToolStripMenuItem.Name = "cancelAppointmentToolStripMenuItem";
-            this.cancelAppointmentToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.cancelAppointmentToolStripMenuItem.Text = "Cancel Appointment";
-            // 
-            // markAsNoShowToolStripMenuItem
-            // 
-            this.markAsNoShowToolStripMenuItem.Name = "markAsNoShowToolStripMenuItem";
-            this.markAsNoShowToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.markAsNoShowToolStripMenuItem.Text = "Mark As No Show";
             // 
             // ucAppointments
             // 
