@@ -1,4 +1,5 @@
 ﻿using MentCareBussinessLayer;
+using MentCarePresentationLayer.Patients;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace MentCarePresentationLayer
 {
     public partial class ucPatientscs : UserControl
     {
+
         public ucPatientscs()
         {
             InitializeComponent();
@@ -124,6 +126,11 @@ namespace MentCarePresentationLayer
             DataTable patientsDT = clsPatient.FindByPhone(phoneNumber);
             dgvPatients.DataSource = patientsDT;
         }
+
+        private int GetSelectedPatientID()
+        {
+            return Convert.ToInt32(dgvPatients.SelectedCells[0].Value);
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string searchText = txtSearch.Text.ToString().Trim();
@@ -152,6 +159,53 @@ namespace MentCarePresentationLayer
 
         }
 
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void patientHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+       
+
+
+
+            
+        }
+
+
+        private void ShowPatientHistory()
+        {
+
+        }
+        private void ShowPatientDetails()
+        {
+
+            int PatientID = Convert.ToInt32(dgvPatients.SelectedCells[0].Value);
+            if(PatientID < 1)
+            {
+                
+            }
+            if (!clsPatient.IsPatientExist(PatientID))
+            {
+                MessageBox.Show("Patient doest exist!");
+                _LoadPatients();
+                return;
+            }
+
+            Form frmPatientDetails = new frmPatientDetails(PatientID);
+            frmPatientDetails.ShowDialog();
+
+        }
+
+        private void patientDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowPatientDetails();
+        }
     }
 
     
