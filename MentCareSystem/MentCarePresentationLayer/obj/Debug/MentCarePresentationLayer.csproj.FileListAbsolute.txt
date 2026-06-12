@@ -12,7 +12,6 @@ E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\De
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCare.40F8F62B.Up2Date
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.exe
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.pdb
-E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.Form1.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmAddEditPatient.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\bin\Debug\Guna.UI2.dll
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucPatientscs.resources
@@ -23,3 +22,5 @@ E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\De
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\bin\Debug\FastUI.dll
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.ucAppointments.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmAddEditAppointment.resources
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.frmMain.resources
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.Appointments.frmRescheuleAppointment.resources
