@@ -32,7 +32,7 @@ namespace MentCarePresentationLayer
 
         private clsAppointment GetSelectedAppointment()
         {
-            return  GetSelectedAppointment();;
+            return clsAppointment.FindByID(Convert.ToInt32(dgvAppointments.SelectedCells[0].Value));
         }
 
         private void ShowAddForm()
@@ -303,7 +303,26 @@ namespace MentCarePresentationLayer
             
 
         }
+        private void _UpdateContextMenu()
+        {
+            clsAppointment appointment = GetSelectedAppointment();;
+            if (appointment == null)
+            {
+                cmsAppointments.Visible = false;
+                return;
+            }
 
+            cmComplete.Enabled = appointment.Status == clsAppointment.enStatus.Scheduled;
+            cmCancel.Enabled = appointment.Status == clsAppointment.enStatus.Scheduled;
+            cmNoShow.Enabled = appointment.Status == clsAppointment.enStatus.Scheduled;
+
+            cmReschedule.Enabled = appointment.Status == clsAppointment.enStatus.NoShow;
+        }
+        private void cmsAppointments_Opening(object sender, CancelEventArgs e)
+        {
+            _UpdateContextMenu();
+
+        }
 
 
 
