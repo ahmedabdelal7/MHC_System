@@ -408,5 +408,46 @@ namespace MentCareDataAccessLayer
 
             return appointmentsDT;
         }
+
+        public static DataTable GetAppointmentsStatisticsForPatient(int PatientID)
+        {
+            DataTable appStatisticsDT = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"SELECT
+                                COUNT(*) AS TotalAppointments,
+
+                                SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END) AS Completed,
+
+                                SUM(CASE WHEN Status = 3 THEN 1 ELSE 0 END) AS Cancelled,
+
+                                SUM(CASE WHEN Status = 4 THEN 1 ELSE 0 END) AS NoShow
+
+                            FROM Appointments
+                            WHERE PatientID = PatientID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
+
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    appStatisticsDT.Load(reader);
+
+                reader.Close();
+
+            }
+            catch  { throw; }
+            finally { connection.Close(); }
+
+            return appStatisticsDT;
+        }
+
     }
 }

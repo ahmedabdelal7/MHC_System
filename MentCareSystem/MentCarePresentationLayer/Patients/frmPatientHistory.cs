@@ -24,10 +24,7 @@ namespace MentCarePresentationLayer.Patients
 
         private void frmPatientHistory_Load(object sender, EventArgs e)
         {
-           /* ucPatientDetails patientDetails = new ucPatientDetails(_PatientID);
-            pnlPatientDetails.Controls.Clear();
-            patientDetails.Dock=DockStyle.Fill;
-            pnlPatientDetails.Controls.Add(patientDetails);*/
+           
 
         }
 
@@ -39,8 +36,17 @@ namespace MentCarePresentationLayer.Patients
         }
 
         private void _LoadData() {
-            _LoadPatientDetails();
+            
+            clsPatient patient = clsPatient.FindByID(_PatientID);
 
+            lblPatientID.Text = $"(#{_PatientID})";
+            lblPatientName.Text = $"{patient.FirstName} {patient.LastName}";
+
+            //Quick Statics:
+
+
+
+            //
 
 
         }
@@ -48,6 +54,11 @@ namespace MentCarePresentationLayer.Patients
         private void pnlPatientDetails_Paint(object sender, PaintEventArgs e)
         {
             _LoadData();
+        }
+
+        private void fuiTable1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -34,14 +34,8 @@ namespace MentCarePresentationLayer
             dgvPatients.SelectedCells[0].Selected = false;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            frmAddEditPatient frm = new frmAddEditPatient(-1);
-            frm.ShowDialog();
-            _LoadPatients();
-        }
-        
-        private void Edit()
+        /// Function
+        private int GetSelectedPatientID()
         {
             int PatientID;
             try
@@ -50,6 +44,22 @@ namespace MentCarePresentationLayer
             }
             catch
             {
+                return -1;
+            }
+
+            return PatientID;
+        }
+        private void AddNewPatient()
+        {
+            frmAddEditPatient frm = new frmAddEditPatient(-1);
+            frm.ShowDialog();
+        }
+        private void Edit()
+        {
+            int PatientID = GetSelectedPatientID();
+
+            if (PatientID == -1)
+            {
                 MessageBox.Show("Please Select Patient First");
                 return;
             }
@@ -57,19 +67,18 @@ namespace MentCarePresentationLayer
             frmAddEditPatient frm = new frmAddEditPatient(PatientID);
             frm.ShowDialog();
         }
-
         private void Delete()
         {
-            int PatientID ;
-            try
-            {
-                PatientID = Convert.ToInt32(dgvPatients.SelectedCells[0].Value);
-            }
-            catch
+
+            int PatientID = GetSelectedPatientID();
+
+            if(PatientID == -1)
             {
                 MessageBox.Show("Please Select Patient First");
                 return;
             }
+
+
 
             DialogResult result = MessageBox.Show($"Are you sure you want to patient: [{PatientID}] ?", "Confirm Delete",
                  MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -87,29 +96,6 @@ namespace MentCarePresentationLayer
                     MessageBox.Show("Faild to Delete");
             }
         }
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            Edit();
-            _LoadPatients();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            Delete();
-            _LoadPatients();
-        }
-
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Edit();
-            _LoadPatients();
-        }
-
-        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Delete();
-            _LoadPatients();
-        }
         private void SearchByID(string patientID)
         {
             DataTable patientsDT = clsPatient.FindByID(patientID);
@@ -126,12 +112,7 @@ namespace MentCarePresentationLayer
             DataTable patientsDT = clsPatient.FindByPhone(phoneNumber);
             dgvPatients.DataSource = patientsDT;
         }
-
-        private int GetSelectedPatientID()
-        {
-            return Convert.ToInt32(dgvPatients.SelectedCells[0].Value);
-        }
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void Search()
         {
             string searchText = txtSearch.Text.ToString().Trim();
 
@@ -148,47 +129,46 @@ namespace MentCarePresentationLayer
                     SearchByName(searchText.ToLower());
                     return;
                 }
-                else if (cbSearchBy.SelectedItem.ToString() == "Phone"){
+                else if (cbSearchBy.SelectedItem.ToString() == "Phone")
+                {
 
                     SearchByPhone(searchText);
                     return;
                 }
             }
-            else
-                _LoadPatients();            
-
+            else _LoadPatients();
         }
-
-
-        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void patientHistoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-       
-
-
-
-            
-        }
-
-
         private void ShowPatientHistory()
         {
+            int PatientID = GetSelectedPatientID();
+
+            if (PatientID == -1)
+            {
+                MessageBox.Show("Please Select Patient First");
+                return;
+            }
+            if (!clsPatient.IsPatientExist(PatientID))
+            {
+                MessageBox.Show("Patient doest exist!");
+                _LoadPatients();
+                return;
+            }
+
+            Form frmPatientHistory = new frmPatientHistory(PatientID);
+            frmPatientHistory.ShowDialog();
+
+
 
         }
         private void ShowPatientDetails()
         {
 
-            int PatientID = Convert.ToInt32(dgvPatients.SelectedCells[0].Value);
-            if(PatientID < 1)
+            int PatientID = GetSelectedPatientID();
+
+            if (PatientID == -1)
             {
-                
+                MessageBox.Show("Please Select Patient First");
+                return;
             }
             if (!clsPatient.IsPatientExist(PatientID))
             {
@@ -202,9 +182,73 @@ namespace MentCarePresentationLayer
 
         }
 
+        /// Events
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            Edit();
+            _LoadPatients();
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddNewPatient();
+            _LoadPatients();
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            Delete();
+            _LoadPatients();
+        }
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Edit();
+            _LoadPatients();
+        }
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Delete();
+            _LoadPatients();
+        }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Edit();
+            _LoadPatients();
+        }
+        private void patientHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowPatientHistory();
+        }
         private void patientDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowPatientDetails();
+        }
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Delete();
+            _LoadPatients();
+        }
+        private void newPatientToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewPatient();
+            _LoadPatients();
+        }
+        private void addToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            AddNewPatient();
+            _LoadPatients();
+        }
+
+        private void patientDetailsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ShowPatientDetails();
+        }
+
+        private void patientHistoryToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ShowPatientHistory();
         }
     }
 
