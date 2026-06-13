@@ -130,6 +130,28 @@ namespace MentCareBussinessLayer
         {
             return clsConsultationData.FindByDoctorName(DoctorName);
         }
+
+        public static clsConsultation GetLastConsultation(int PatientID)
+        {
+            clsConsultationData.stConsultation consultation = new clsConsultationData.stConsultation();
+
+            if(clsConsultationData.GetLastConsultationForPatient(PatientID,ref consultation))
+            {
+                return new clsConsultation(consultation.ConsultationID, consultation.PatientID, consultation.DoctorID,
+                    consultation.ConsultationDate, consultation.Diagnosis, consultation.Notes, consultation.TreatmentPlan);
+            }
+            return null;
+        }
+
+        public static int GetConsultationsCount(int PatientID)
+        {
+            return clsConsultationData.GetPatientConsultationsCount(PatientID);
+        }
+
+
+
+
+
     }
     
 }

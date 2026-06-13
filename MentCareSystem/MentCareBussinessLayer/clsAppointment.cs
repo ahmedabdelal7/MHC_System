@@ -213,5 +213,12 @@ namespace MentCareBussinessLayer
             }
             return false;
         }
+
+        public static DataTable GetAppointmentsStatistics(int Patient)
+        {
+            return clsAppointmentData.GetAppointmentsStatisticsForPatient(Patient);
+        }
+
+
     }
 }

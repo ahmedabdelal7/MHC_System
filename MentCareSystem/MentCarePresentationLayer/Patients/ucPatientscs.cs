@@ -250,6 +250,11 @@ namespace MentCarePresentationLayer
         {
             ShowPatientHistory();
         }
+
+        private void dgvPatients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ShowPatientDetails();
+        }
     }
 
     

@@ -158,6 +158,7 @@
             this.dgvPatients.ThemeStyle.RowsStyle.Height = 50;
             this.dgvPatients.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(221)))), ((int)(((byte)(160)))));
             this.dgvPatients.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvPatients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatients_CellDoubleClick);
             // 
             // PatientID
             // 
@@ -199,7 +200,7 @@
             this.addToolStripMenuItem1,
             this.addNewAppointmentToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 168);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 146);
             // 
             // viewDetailsToolStripMenuItem
             // 

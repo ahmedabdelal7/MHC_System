@@ -24,8 +24,8 @@ namespace MentCarePresentationLayer.Patients
 
         private void frmPatientHistory_Load(object sender, EventArgs e)
         {
-           
 
+            _LoadData();
         }
 
         private void _LoadPatientDetails()
@@ -43,10 +43,36 @@ namespace MentCarePresentationLayer.Patients
             lblPatientName.Text = $"{patient.FirstName} {patient.LastName}";
 
             //Quick Statics:
+            lblConsultations.Text = clsConsultation.GetConsultationsCount(_PatientID).ToString();
+
+            DataRow statisticsrow = clsAppointment.GetAppointmentsStatistics(_PatientID).Rows[0];
+
+            lblAppointments.Text = statisticsrow["TotalAppointments"].ToString();
+            lblCompleted.Text = statisticsrow["Completed"].ToString();
+            lblCancelled.Text = statisticsrow["Cancelled"].ToString();
+            lblNoShow.Text = statisticsrow["NoShow"].ToString();
 
 
+            clsConsultation lastConsultation = clsConsultation.GetLastConsultation(_PatientID);
 
-            //
+            if(lastConsultation != null)
+            {
+                txtDoctorName.FastText = patient.FirstName + " " + patient.LastName;
+                txtDiagnosis.FastText  = lastConsultation.Diagnosis;
+                txtTreatment.FastText = lastConsultation.TreatmentPlan;
+                txtDate.FastText = lastConsultation.ConsultationDate.ToString();
+            } 
+
+            //Appointments - Consultatons DGV
+
+
+            dgvConsultations.Columns.Clear();
+            dgvAppointments.Columns.Clear();
+            dgvAppointments.DataSource = clsAppointment.FindByID(_PatientID.ToString());
+            dgvConsultations.DataSource = clsConsultation.FindByID(_PatientID.ToString());
+            
+
+
 
 
         }

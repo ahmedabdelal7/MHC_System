@@ -417,14 +417,14 @@ namespace MentCareDataAccessLayer
             string query = @"SELECT
                                 COUNT(*) AS TotalAppointments,
 
-                                SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END) AS Completed,
+                                ISNULL(SUM(CASE WHEN Status = 2 THEN 1 ELSE 0 END),0) AS Completed,
 
-                                SUM(CASE WHEN Status = 3 THEN 1 ELSE 0 END) AS Cancelled,
+                                ISNULL(SUM(CASE WHEN Status = 3 THEN 1 ELSE 0 END),0) AS Cancelled,
 
-                                SUM(CASE WHEN Status = 4 THEN 1 ELSE 0 END) AS NoShow
+                                ISNULL(SUM(CASE WHEN Status = 4 THEN 1 ELSE 0 END),0) AS NoShow
 
                             FROM Appointments
-                            WHERE PatientID = PatientID;";
+                            WHERE PatientID = @PatientID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -437,7 +437,7 @@ namespace MentCareDataAccessLayer
 
                 SqlDataReader reader = command.ExecuteReader();
 
-                if (reader.HasRows)
+                //if (reader.HasRows)
                     appStatisticsDT.Load(reader);
 
                 reader.Close();
