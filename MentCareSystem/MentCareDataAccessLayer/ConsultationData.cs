@@ -349,5 +349,83 @@ namespace MentCareDataAccessLayer
 
         }
 
+        public static int GetPatientConsultationsCount(int PatientID)
+        {
+            int CountConsultations = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"SELECT COUNT(*)
+	                            FROM Consultations 
+	                            WHERE PatientID = @PatientID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
+
+
+            try
+            {
+                connection.Open();
+
+               
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                {
+                    CountConsultations = Convert.ToInt32(result);
+                }
+
+            }
+            catch { throw; }
+            finally { connection.Close(); }
+
+            return CountConsultations;
+        }
+
+        public static bool GetLastConsultationForPatient(int PatientID, ref stConsultation consultationInfo)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"SELECT TOP 1 *
+                            FROM Consultations
+                            WHERE PatientID = @PatientID
+                            ORDER BY ConsultationDate DESC;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
+
+
+            try
+            {
+                connection.Open();
+
+
+                SqlDataReader reader = command.ExecuteReader(); 
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    consultationInfo.ConsultationID = Convert.ToInt32(reader["ConsultationID"]);
+                    consultationInfo.PatientID = Convert.ToInt32(reader["PatientID"]);
+                    consultationInfo.DoctorID = Convert.ToInt32(reader["DoctorID"]);
+                    consultationInfo.ConsultationDate = (DateTime)reader["ConsultationDate"];
+                    consultationInfo.Diagnosis = reader["Diagnosis"].ToString();
+
+                    consultationInfo.TreatmentPlan = (reader["TreatmentPlan"] == DBNull.Value ? "" : reader["TreatmentPlan"].ToString());
+                    consultationInfo.Notes = (reader["Notes"] == DBNull.Value ? "" : reader["Notes"].ToString());
+
+                }
+
+                reader.Close();
+
+            }
+            catch { throw; }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
+
     }
 }
