@@ -148,6 +148,10 @@ namespace MentCareBussinessLayer
             return clsConsultationData.GetPatientConsultationsCount(PatientID);
         }
 
+        public static DataTable ListAllPatientConsultations(int PatientID)
+        {
+            return clsConsultationData.GetConsultationsByPatientID(PatientID);
+        }
 
 
 

@@ -449,5 +449,46 @@ namespace MentCareDataAccessLayer
             return appStatisticsDT;
         }
 
+
+        public static DataTable GetAppointmentsByPatientID(int PatientID)
+        {
+            DataTable appointmentsDT = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"SELECT Appointments.AppointmentID,
+	                            Patients.FirstName+' '+ ISNULL(Patients.LastName,'') AS PatientName,
+	                            Doctors.FirstName+' '+ ISNULL(Doctors.LastName,'') AS DoctorName,
+	                            Appointments.AppointmentDateTime,
+	                            CASE Appointments.Status
+									WHEN 1 THEN 'Scheduled'
+									WHEN 2 THEN 'Completed'
+									WHEN 3 THEN 'Cancelled'
+									WHEN 4 THEN 'No Show'
+								END AS Status
+                            FROM Appointments INNER JOIN
+	                            Doctors ON Appointments.DoctorID = Doctors.DoctorID INNER JOIN
+	                            Patients ON Appointments.PatientID = Patients.PatientID
+                            WHERE Patients.PatientID  = @PatientID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                appointmentsDT.Load(reader);
+
+                reader.Close();
+
+            }
+            catch { throw; }
+            finally { connection.Close(); }
+
+            return appointmentsDT;
+        }
     }
 }

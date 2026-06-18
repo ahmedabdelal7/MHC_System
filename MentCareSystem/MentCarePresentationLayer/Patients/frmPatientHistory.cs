@@ -68,12 +68,9 @@ namespace MentCarePresentationLayer.Patients
 
             dgvConsultations.Columns.Clear();
             dgvAppointments.Columns.Clear();
-            dgvAppointments.DataSource = clsAppointment.FindByID(_PatientID.ToString());
-            dgvConsultations.DataSource = clsConsultation.FindByID(_PatientID.ToString());
-            
-
-
-
+            dgvAppointments.DataSource = clsAppointment.ListAllPatientAppointments(_PatientID);
+            dgvConsultations.DataSource = clsConsultation.ListAllPatientConsultations(_PatientID);
+            s
 
         }
 

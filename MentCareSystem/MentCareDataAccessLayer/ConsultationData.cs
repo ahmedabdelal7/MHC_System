@@ -427,5 +427,39 @@ namespace MentCareDataAccessLayer
             return isFound;
         }
 
+        public static DataTable GetConsultationsByPatientID(int PatientID)
+        {
+            DataTable ConsultstionsDT = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT
+                                c.ConsultationID,
+                                p.FirstName + ' ' + ISNULL(p.LastName,'') AS PatientName,
+                                d.FirstName + ' ' + ISNULL(d.LastName,'') AS DoctorName,
+                                c.ConsultationDate
+                            FROM Consultations c
+                            INNER JOIN Doctors d
+                                ON c.DoctorID = d.DoctorID
+                            INNER JOIN Patients p
+                                ON c.PatientID = p.PatientID
+                            WHERE p.PatientID = @PatientID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@PatientID", SqlDbType.Int).Value = PatientID;
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                ConsultstionsDT.Load(reader);
+
+                reader.Close();
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            finally { connection.Close(); }
+            return ConsultstionsDT;
+        }
+
     }
 }
