@@ -35,6 +35,7 @@ namespace MentCarePresentationLayer
                 lblAddEditDoctor.Text = "Add New Doctor";
                 lblDoctorID.Text = "??";
                 Doctor = new clsDoctor();
+                lblRemove.Visible = false;
                 return;
             }
             //if mode in add update doctor mode:
@@ -48,6 +49,17 @@ namespace MentCarePresentationLayer
             txtPhone.Text = Doctor.Phone;
             txtSpecialization.Text = Doctor.Specialization;
             dtHireDate.Value = Doctor.HireDate;
+
+            lblRemove.Visible = false;
+
+            if(Doctor.ImagePath != "")
+            {
+                ppProfilePicture.Load(Doctor.ImagePath);
+                lblRemove.Visible = true;
+
+            }
+
+
 
         }
 
@@ -117,6 +129,43 @@ namespace MentCarePresentationLayer
         {
             this.Close();
             _LoadData();
+        }
+
+
+        private void UpdateProfilePicture()
+        {
+            openFileDialog1.InitialDirectory = @"E\";
+            openFileDialog1.Title = "Choose Image";
+            openFileDialog1.DefaultExt = "jpg";
+            openFileDialog1.Filter = "images (*.jpg) |*.jpg| All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 0;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Doctor.ImagePath = openFileDialog1.FileName;
+            }
+            if (Doctor.ImagePath != "")
+            {
+                ppProfilePicture.Load(Doctor.ImagePath);
+                lblRemove.Visible = true;
+            }
+        }
+        private void lblUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            UpdateProfilePicture();
+        }
+
+        private void lblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure uou want to remove profile Picture?", "Confirm",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (result == DialogResult.OK)
+            {
+                Doctor.ImagePath = "";
+                ppProfilePicture.Load(@"C:\Users\42052\Downloads\Images\user.png");
+                lblRemove.Visible = false;
+
+            }
         }
     }
 }

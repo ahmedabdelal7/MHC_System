@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPatientDetails));
             this.pnlContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.lblPatientDetails = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ppProfilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.gbGender = new System.Windows.Forms.GroupBox();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
@@ -47,17 +50,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblPatientDetails = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.ppProfilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.pnlContainer.SuspendLayout();
-            this.gbGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ppProfilePicture)).BeginInit();
+            this.gbGender.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlContainer
             // 
-            this.pnlContainer.Controls.Add(this.btnClose);
             this.pnlContainer.Controls.Add(this.gbGender);
             this.pnlContainer.Controls.Add(this.dtDateOfBirth);
             this.pnlContainer.Controls.Add(this.txtLastName);
@@ -73,14 +72,58 @@
             this.pnlContainer.Controls.Add(this.label3);
             this.pnlContainer.Controls.Add(this.label2);
             this.pnlContainer.Controls.Add(this.label1);
+            this.pnlContainer.Controls.Add(this.btnClose);
             this.pnlContainer.Controls.Add(this.lblPatientDetails);
             this.pnlContainer.Controls.Add(this.ppProfilePicture);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Location = new System.Drawing.Point(0, 0);
             this.pnlContainer.Name = "pnlContainer";
             this.pnlContainer.ShadowDecoration.Parent = this.pnlContainer;
-            this.pnlContainer.Size = new System.Drawing.Size(917, 517);
+            this.pnlContainer.Size = new System.Drawing.Size(829, 575);
             this.pnlContainer.TabIndex = 0;
+            this.pnlContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContainer_Paint);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BorderRadius = 15;
+            this.btnClose.CheckedState.Parent = this.btnClose;
+            this.btnClose.CustomImages.Parent = this.btnClose;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.HoverState.Parent = this.btnClose;
+            this.btnClose.Location = new System.Drawing.Point(623, 508);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.ShadowDecoration.Parent = this.btnClose;
+            this.btnClose.Size = new System.Drawing.Size(141, 45);
+            this.btnClose.TabIndex = 39;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lblPatientDetails
+            // 
+            this.lblPatientDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPatientDetails.BackColor = System.Drawing.Color.Transparent;
+            this.lblPatientDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientDetails.Location = new System.Drawing.Point(355, 22);
+            this.lblPatientDetails.Margin = new System.Windows.Forms.Padding(2);
+            this.lblPatientDetails.Name = "lblPatientDetails";
+            this.lblPatientDetails.Size = new System.Drawing.Size(119, 26);
+            this.lblPatientDetails.TabIndex = 23;
+            this.lblPatientDetails.Text = "Patient Details";
+            // 
+            // ppProfilePicture
+            // 
+            this.ppProfilePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ppProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("ppProfilePicture.Image")));
+            this.ppProfilePicture.Location = new System.Drawing.Point(48, 83);
+            this.ppProfilePicture.Margin = new System.Windows.Forms.Padding(2);
+            this.ppProfilePicture.Name = "ppProfilePicture";
+            this.ppProfilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.ppProfilePicture.ShadowDecoration.Parent = this.ppProfilePicture;
+            this.ppProfilePicture.Size = new System.Drawing.Size(100, 98);
+            this.ppProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ppProfilePicture.TabIndex = 22;
+            this.ppProfilePicture.TabStop = false;
             // 
             // gbGender
             // 
@@ -89,12 +132,12 @@
             this.gbGender.Controls.Add(this.rbFemale);
             this.gbGender.Enabled = false;
             this.gbGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGender.Location = new System.Drawing.Point(431, 244);
+            this.gbGender.Location = new System.Drawing.Point(470, 327);
             this.gbGender.Margin = new System.Windows.Forms.Padding(2);
             this.gbGender.Name = "gbGender";
             this.gbGender.Padding = new System.Windows.Forms.Padding(2);
             this.gbGender.Size = new System.Drawing.Size(294, 54);
-            this.gbGender.TabIndex = 38;
+            this.gbGender.TabIndex = 54;
             this.gbGender.TabStop = false;
             this.gbGender.Text = "Gender";
             // 
@@ -129,23 +172,25 @@
             // dtDateOfBirth
             // 
             this.dtDateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtDateOfBirth.BorderRadius = 15;
             this.dtDateOfBirth.CheckedState.Parent = this.dtDateOfBirth;
             this.dtDateOfBirth.Enabled = false;
             this.dtDateOfBirth.FillColor = System.Drawing.Color.White;
             this.dtDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.dtDateOfBirth.HoverState.Parent = this.dtDateOfBirth;
-            this.dtDateOfBirth.Location = new System.Drawing.Point(164, 180);
+            this.dtDateOfBirth.Location = new System.Drawing.Point(203, 263);
             this.dtDateOfBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtDateOfBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtDateOfBirth.Name = "dtDateOfBirth";
             this.dtDateOfBirth.ShadowDecoration.Parent = this.dtDateOfBirth;
             this.dtDateOfBirth.Size = new System.Drawing.Size(215, 29);
-            this.dtDateOfBirth.TabIndex = 37;
+            this.dtDateOfBirth.TabIndex = 53;
             this.dtDateOfBirth.Value = new System.DateTime(2026, 6, 12, 23, 2, 28, 218);
             // 
             // txtLastName
             // 
             this.txtLastName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtLastName.BorderRadius = 15;
             this.txtLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtLastName.DefaultText = "";
             this.txtLastName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -159,7 +204,7 @@
             this.txtLastName.ForeColor = System.Drawing.Color.Black;
             this.txtLastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLastName.HoverState.Parent = this.txtLastName;
-            this.txtLastName.Location = new System.Drawing.Point(510, 124);
+            this.txtLastName.Location = new System.Drawing.Point(549, 207);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.PasswordChar = '\0';
@@ -168,11 +213,12 @@
             this.txtLastName.SelectedText = "";
             this.txtLastName.ShadowDecoration.Parent = this.txtLastName;
             this.txtLastName.Size = new System.Drawing.Size(215, 29);
-            this.txtLastName.TabIndex = 36;
+            this.txtLastName.TabIndex = 52;
             // 
             // txtAddress
             // 
             this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.BorderRadius = 15;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
             this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -186,8 +232,9 @@
             this.txtAddress.ForeColor = System.Drawing.Color.Black;
             this.txtAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAddress.HoverState.Parent = this.txtAddress;
-            this.txtAddress.Location = new System.Drawing.Point(163, 317);
+            this.txtAddress.Location = new System.Drawing.Point(202, 400);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.PasswordChar = '\0';
             this.txtAddress.PlaceholderText = "";
@@ -195,11 +242,12 @@
             this.txtAddress.SelectedText = "";
             this.txtAddress.ShadowDecoration.Parent = this.txtAddress;
             this.txtAddress.Size = new System.Drawing.Size(562, 64);
-            this.txtAddress.TabIndex = 35;
+            this.txtAddress.TabIndex = 51;
             // 
             // txtEmergencyCall
             // 
             this.txtEmergencyCall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmergencyCall.BorderRadius = 15;
             this.txtEmergencyCall.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmergencyCall.DefaultText = "";
             this.txtEmergencyCall.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -213,7 +261,7 @@
             this.txtEmergencyCall.ForeColor = System.Drawing.Color.Black;
             this.txtEmergencyCall.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmergencyCall.HoverState.Parent = this.txtEmergencyCall;
-            this.txtEmergencyCall.Location = new System.Drawing.Point(163, 244);
+            this.txtEmergencyCall.Location = new System.Drawing.Point(202, 327);
             this.txtEmergencyCall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmergencyCall.Name = "txtEmergencyCall";
             this.txtEmergencyCall.PasswordChar = '\0';
@@ -222,11 +270,12 @@
             this.txtEmergencyCall.SelectedText = "";
             this.txtEmergencyCall.ShadowDecoration.Parent = this.txtEmergencyCall;
             this.txtEmergencyCall.Size = new System.Drawing.Size(216, 29);
-            this.txtEmergencyCall.TabIndex = 34;
+            this.txtEmergencyCall.TabIndex = 50;
             // 
             // txtPhone
             // 
             this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhone.BorderRadius = 15;
             this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPhone.DefaultText = "";
             this.txtPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -240,7 +289,7 @@
             this.txtPhone.ForeColor = System.Drawing.Color.Black;
             this.txtPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtPhone.HoverState.Parent = this.txtPhone;
-            this.txtPhone.Location = new System.Drawing.Point(509, 180);
+            this.txtPhone.Location = new System.Drawing.Point(548, 263);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.PasswordChar = '\0';
@@ -249,11 +298,12 @@
             this.txtPhone.SelectedText = "";
             this.txtPhone.ShadowDecoration.Parent = this.txtPhone;
             this.txtPhone.Size = new System.Drawing.Size(216, 29);
-            this.txtPhone.TabIndex = 33;
+            this.txtPhone.TabIndex = 49;
             // 
             // txtFirstName
             // 
             this.txtFirstName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFirstName.BorderRadius = 15;
             this.txtFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFirstName.DefaultText = "";
             this.txtFirstName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -267,7 +317,7 @@
             this.txtFirstName.ForeColor = System.Drawing.Color.Black;
             this.txtFirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtFirstName.HoverState.Parent = this.txtFirstName;
-            this.txtFirstName.Location = new System.Drawing.Point(164, 124);
+            this.txtFirstName.Location = new System.Drawing.Point(203, 207);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.PasswordChar = '\0';
@@ -276,18 +326,18 @@
             this.txtFirstName.SelectedText = "";
             this.txtFirstName.ShadowDecoration.Parent = this.txtFirstName;
             this.txtFirstName.Size = new System.Drawing.Size(216, 29);
-            this.txtFirstName.TabIndex = 32;
+            this.txtFirstName.TabIndex = 48;
             // 
             // lblPatientID
             // 
             this.lblPatientID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPatientID.AutoSize = true;
-            this.lblPatientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientID.Location = new System.Drawing.Point(116, 81);
+            this.lblPatientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatientID.Location = new System.Drawing.Point(303, 124);
             this.lblPatientID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPatientID.Name = "lblPatientID";
-            this.lblPatientID.Size = new System.Drawing.Size(24, 18);
-            this.lblPatientID.TabIndex = 31;
+            this.lblPatientID.Size = new System.Drawing.Size(27, 20);
+            this.lblPatientID.TabIndex = 47;
             this.lblPatientID.Text = "??";
             // 
             // label6
@@ -295,11 +345,11 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(32, 317);
+            this.label6.Location = new System.Drawing.Point(71, 400);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 18);
-            this.label6.TabIndex = 30;
+            this.label6.TabIndex = 46;
             this.label6.Text = "Address";
             // 
             // label7
@@ -307,11 +357,11 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(32, 244);
+            this.label7.Location = new System.Drawing.Point(71, 327);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(112, 18);
-            this.label7.TabIndex = 29;
+            this.label7.TabIndex = 45;
             this.label7.Text = "Emergency Call";
             // 
             // label4
@@ -319,11 +369,11 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(428, 180);
+            this.label4.Location = new System.Drawing.Point(467, 263);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 18);
-            this.label4.TabIndex = 28;
+            this.label4.TabIndex = 44;
             this.label4.Text = "Phone";
             // 
             // label5
@@ -331,11 +381,11 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 180);
+            this.label5.Location = new System.Drawing.Point(71, 263);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 18);
-            this.label5.TabIndex = 27;
+            this.label5.TabIndex = 43;
             this.label5.Text = "Date Of Birth";
             // 
             // label3
@@ -343,11 +393,11 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(428, 124);
+            this.label3.Location = new System.Drawing.Point(467, 207);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 18);
-            this.label3.TabIndex = 26;
+            this.label3.TabIndex = 42;
             this.label3.Text = "LastName";
             // 
             // label2
@@ -355,80 +405,40 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(32, 124);
+            this.label2.Location = new System.Drawing.Point(71, 207);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 18);
-            this.label2.TabIndex = 25;
+            this.label2.TabIndex = 41;
             this.label2.Text = "FirstName";
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 81);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(219, 124);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 18);
-            this.label1.TabIndex = 24;
+            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.TabIndex = 40;
             this.label1.Text = "Patient ID";
-            // 
-            // lblPatientDetails
-            // 
-            this.lblPatientDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPatientDetails.BackColor = System.Drawing.Color.Transparent;
-            this.lblPatientDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatientDetails.Location = new System.Drawing.Point(399, 22);
-            this.lblPatientDetails.Margin = new System.Windows.Forms.Padding(2);
-            this.lblPatientDetails.Name = "lblPatientDetails";
-            this.lblPatientDetails.Size = new System.Drawing.Size(119, 26);
-            this.lblPatientDetails.TabIndex = 23;
-            this.lblPatientDetails.Text = "Patient Details";
-            // 
-            // ppProfilePicture
-            // 
-            this.ppProfilePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ppProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("ppProfilePicture.Image")));
-            this.ppProfilePicture.Location = new System.Drawing.Point(776, 124);
-            this.ppProfilePicture.Margin = new System.Windows.Forms.Padding(2);
-            this.ppProfilePicture.Name = "ppProfilePicture";
-            this.ppProfilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.ppProfilePicture.ShadowDecoration.Parent = this.ppProfilePicture;
-            this.ppProfilePicture.Size = new System.Drawing.Size(108, 116);
-            this.ppProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ppProfilePicture.TabIndex = 22;
-            this.ppProfilePicture.TabStop = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.CheckedState.Parent = this.btnClose;
-            this.btnClose.CustomImages.Parent = this.btnClose;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.HoverState.Parent = this.btnClose;
-            this.btnClose.Location = new System.Drawing.Point(743, 447);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.ShadowDecoration.Parent = this.btnClose;
-            this.btnClose.Size = new System.Drawing.Size(141, 45);
-            this.btnClose.TabIndex = 39;
-            this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmPatientDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(917, 517);
+            this.ClientSize = new System.Drawing.Size(829, 575);
             this.Controls.Add(this.pnlContainer);
             this.Name = "frmPatientDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPatientDetails";
             this.Load += new System.EventHandler(this.frmPatientDetails_Load);
             this.pnlContainer.ResumeLayout(false);
             this.pnlContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ppProfilePicture)).EndInit();
             this.gbGender.ResumeLayout(false);
             this.gbGender.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ppProfilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -436,6 +446,9 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel pnlContainer;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblPatientDetails;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox ppProfilePicture;
+        private Guna.UI2.WinForms.Guna2Button btnClose;
         private System.Windows.Forms.GroupBox gbGender;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.RadioButton rbFemale;
@@ -453,8 +466,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblPatientDetails;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox ppProfilePicture;
-        private Guna.UI2.WinForms.Guna2Button btnClose;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MentCareBussinessLayer;
+using MentCarePresentationLayer.Doctors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,6 +30,22 @@ namespace MentCarePresentationLayer
             dgvDoctors.DataSource = doctorsDT;
             dgvDoctors.SelectedCells[0].Selected = false;
             
+
+
+        }
+        private int GetSelectedDoctorID()
+        {
+            int doctorID;
+            try
+            {
+                doctorID = Convert.ToInt32(dgvDoctors.SelectedCells[0].Value);
+            }
+            catch
+            {
+                return -1;
+            }
+
+            return doctorID;
         }
         private void Delete()
         {
@@ -159,5 +176,41 @@ namespace MentCarePresentationLayer
 
         }
 
+        private void ShowDoctorDetails()
+        {
+
+            int doctorID = GetSelectedDoctorID();
+
+            if (doctorID == -1)
+            {
+                MessageBox.Show("Please Select Doctor First");
+                return;
+            }
+            if (!clsDoctor.IsDoctorExist(doctorID))
+            {
+                MessageBox.Show("Doctor doest exist!");
+                _LoadDoctors();
+                return;
+            }
+
+            Form frmDoctorDetails = new frmDoctorDetails(doctorID);
+            frmDoctorDetails.ShowDialog();
+
+        }
+        private void viewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowDoctorDetails();
+        }
+
+        private void dgvDoctors_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ShowDoctorDetails();
+        }
+
+        private void addNewDoctorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAddForm();
+            _LoadDoctors();
+        }
     }
 }

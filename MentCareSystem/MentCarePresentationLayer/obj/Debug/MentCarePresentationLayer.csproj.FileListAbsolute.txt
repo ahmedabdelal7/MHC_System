@@ -26,3 +26,4 @@ E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\De
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.Appointments.frmRescheuleAppointment.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.Patients.frmPatientHistory.resources
 E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.Patients.frmPatientDetails.resources
+E:\Projects\MentCareSystemFolder\MentCareSystem\MentCarePresentationLayer\obj\Debug\MentCarePresentationLayer.Doctors.frmDoctorDetails.resources

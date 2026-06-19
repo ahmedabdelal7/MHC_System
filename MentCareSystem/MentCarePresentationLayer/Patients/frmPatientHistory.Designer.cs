@@ -35,11 +35,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tab = new System.Windows.Forms.TabControl();
+            this.tabAppointments = new System.Windows.Forms.TabPage();
+            this.dgvAppointments = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.AppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabConsultations = new System.Windows.Forms.TabPage();
+            this.dgvConsultations = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.ConsultationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConsultDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDate = new FastUI.FastUILibrary.Components.FuiDate();
             this.txtTreatment = new FastUI.FastUILibrary.Components.FuiTextBox();
             this.txtDiagnosis = new FastUI.FastUILibrary.Components.FuiTextBox();
             this.txtDoctorName = new FastUI.FastUILibrary.Components.FuiTextBox();
+            this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.lblPatientID = new System.Windows.Forms.Label();
             this.lblPatientName = new System.Windows.Forms.Label();
@@ -61,27 +77,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
-            this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
-            this.tab = new System.Windows.Forms.TabControl();
-            this.tabAppointments = new System.Windows.Forms.TabPage();
-            this.tabConsultations = new System.Windows.Forms.TabPage();
-            this.dgvAppointments = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.AppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DoctorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvConsultations = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ConsultationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ConsultDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabAppointments.SuspendLayout();
-            this.tabConsultations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).BeginInit();
+            this.tabConsultations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +121,239 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(945, 794);
             this.panel1.TabIndex = 0;
+            // 
+            // tab
+            // 
+            this.tab.Controls.Add(this.tabAppointments);
+            this.tab.Controls.Add(this.tabConsultations);
+            this.tab.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab.Location = new System.Drawing.Point(0, 461);
+            this.tab.Name = "tab";
+            this.tab.SelectedIndex = 0;
+            this.tab.Size = new System.Drawing.Size(945, 333);
+            this.tab.TabIndex = 75;
+            // 
+            // tabAppointments
+            // 
+            this.tabAppointments.Controls.Add(this.dgvAppointments);
+            this.tabAppointments.Location = new System.Drawing.Point(4, 29);
+            this.tabAppointments.Name = "tabAppointments";
+            this.tabAppointments.Size = new System.Drawing.Size(937, 300);
+            this.tabAppointments.TabIndex = 0;
+            this.tabAppointments.Text = "Appointments";
+            this.tabAppointments.UseVisualStyleBackColor = true;
+            // 
+            // dgvAppointments
+            // 
+            this.dgvAppointments.AllowUserToAddRows = false;
+            this.dgvAppointments.AllowUserToDeleteRows = false;
+            this.dgvAppointments.AllowUserToOrderColumns = true;
+            this.dgvAppointments.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(216)))), ((int)(((byte)(189)))));
+            this.dgvAppointments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAppointments.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAppointments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvAppointments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAppointments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAppointments.ColumnHeadersHeight = 40;
+            this.dgvAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AppointmentID,
+            this.PatientName,
+            this.DoctorName,
+            this.AppointmentDate,
+            this.Status});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(229)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(169)))), ((int)(((byte)(107)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAppointments.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAppointments.EnableHeadersVisualStyles = false;
+            this.dgvAppointments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(209)))), ((int)(((byte)(177)))));
+            this.dgvAppointments.Location = new System.Drawing.Point(0, 0);
+            this.dgvAppointments.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvAppointments.MultiSelect = false;
+            this.dgvAppointments.Name = "dgvAppointments";
+            this.dgvAppointments.ReadOnly = true;
+            this.dgvAppointments.RowHeadersVisible = false;
+            this.dgvAppointments.RowHeadersWidth = 51;
+            this.dgvAppointments.RowTemplate.Height = 50;
+            this.dgvAppointments.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAppointments.Size = new System.Drawing.Size(937, 300);
+            this.dgvAppointments.TabIndex = 30;
+            this.dgvAppointments.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Carrot;
+            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(216)))), ((int)(((byte)(189)))));
+            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvAppointments.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvAppointments.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(209)))), ((int)(((byte)(177)))));
+            this.dgvAppointments.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
+            this.dgvAppointments.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvAppointments.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAppointments.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvAppointments.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvAppointments.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvAppointments.ThemeStyle.ReadOnly = true;
+            this.dgvAppointments.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(229)))), ((int)(((byte)(211)))));
+            this.dgvAppointments.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvAppointments.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAppointments.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvAppointments.ThemeStyle.RowsStyle.Height = 50;
+            this.dgvAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(169)))), ((int)(((byte)(107)))));
+            this.dgvAppointments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // AppointmentID
+            // 
+            this.AppointmentID.HeaderText = "AppointmentID";
+            this.AppointmentID.Name = "AppointmentID";
+            this.AppointmentID.ReadOnly = true;
+            // 
+            // PatientName
+            // 
+            this.PatientName.HeaderText = "PatientName";
+            this.PatientName.Name = "PatientName";
+            this.PatientName.ReadOnly = true;
+            // 
+            // DoctorName
+            // 
+            this.DoctorName.HeaderText = "DoctorName";
+            this.DoctorName.Name = "DoctorName";
+            this.DoctorName.ReadOnly = true;
+            // 
+            // AppointmentDate
+            // 
+            this.AppointmentDate.HeaderText = "AppointmentDate";
+            this.AppointmentDate.Name = "AppointmentDate";
+            this.AppointmentDate.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // tabConsultations
+            // 
+            this.tabConsultations.Controls.Add(this.dgvConsultations);
+            this.tabConsultations.Location = new System.Drawing.Point(4, 29);
+            this.tabConsultations.Name = "tabConsultations";
+            this.tabConsultations.Size = new System.Drawing.Size(937, 300);
+            this.tabConsultations.TabIndex = 1;
+            this.tabConsultations.Text = "Consultations";
+            this.tabConsultations.UseVisualStyleBackColor = true;
+            // 
+            // dgvConsultations
+            // 
+            this.dgvConsultations.AllowUserToAddRows = false;
+            this.dgvConsultations.AllowUserToDeleteRows = false;
+            this.dgvConsultations.AllowUserToOrderColumns = true;
+            this.dgvConsultations.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.dgvConsultations.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvConsultations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvConsultations.BackgroundColor = System.Drawing.Color.White;
+            this.dgvConsultations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvConsultations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvConsultations.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvConsultations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvConsultations.ColumnHeadersHeight = 40;
+            this.dgvConsultations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ConsultationID,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.ConsultDate});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConsultations.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvConsultations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvConsultations.EnableHeadersVisualStyles = false;
+            this.dgvConsultations.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
+            this.dgvConsultations.Location = new System.Drawing.Point(0, 0);
+            this.dgvConsultations.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvConsultations.MultiSelect = false;
+            this.dgvConsultations.Name = "dgvConsultations";
+            this.dgvConsultations.ReadOnly = true;
+            this.dgvConsultations.RowHeadersVisible = false;
+            this.dgvConsultations.RowHeadersWidth = 51;
+            this.dgvConsultations.RowTemplate.Height = 50;
+            this.dgvConsultations.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvConsultations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvConsultations.Size = new System.Drawing.Size(937, 300);
+            this.dgvConsultations.TabIndex = 22;
+            this.dgvConsultations.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightBlue;
+            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
+            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvConsultations.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvConsultations.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
+            this.dgvConsultations.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
+            this.dgvConsultations.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvConsultations.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvConsultations.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvConsultations.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvConsultations.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvConsultations.ThemeStyle.ReadOnly = true;
+            this.dgvConsultations.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
+            this.dgvConsultations.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvConsultations.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvConsultations.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvConsultations.ThemeStyle.RowsStyle.Height = 50;
+            this.dgvConsultations.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
+            this.dgvConsultations.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // ConsultationID
+            // 
+            this.ConsultationID.HeaderText = "ConsultationID";
+            this.ConsultationID.Name = "ConsultationID";
+            this.ConsultationID.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "PatientName";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "DoctorName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // ConsultDate
+            // 
+            this.ConsultDate.HeaderText = "ConsultDate";
+            this.ConsultDate.Name = "ConsultDate";
+            this.ConsultDate.ReadOnly = true;
             // 
             // txtDate
             // 
@@ -252,6 +485,14 @@
             this.txtDoctorName.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtDoctorName.Theme = "Windows11";
             // 
+            // guna2Separator4
+            // 
+            this.guna2Separator4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2Separator4.Location = new System.Drawing.Point(82, 426);
+            this.guna2Separator4.Name = "guna2Separator4";
+            this.guna2Separator4.Size = new System.Drawing.Size(783, 17);
+            this.guna2Separator4.TabIndex = 70;
+            // 
             // guna2Separator1
             // 
             this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -259,6 +500,14 @@
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(783, 17);
             this.guna2Separator1.TabIndex = 70;
+            // 
+            // guna2Separator3
+            // 
+            this.guna2Separator3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.guna2Separator3.Location = new System.Drawing.Point(79, 248);
+            this.guna2Separator3.Name = "guna2Separator3";
+            this.guna2Separator3.Size = new System.Drawing.Size(780, 17);
+            this.guna2Separator3.TabIndex = 69;
             // 
             // guna2Separator2
             // 
@@ -522,255 +771,6 @@
             this.label1.TabIndex = 61;
             this.label1.Text = "Patient History";
             // 
-            // guna2Separator3
-            // 
-            this.guna2Separator3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Separator3.Location = new System.Drawing.Point(79, 248);
-            this.guna2Separator3.Name = "guna2Separator3";
-            this.guna2Separator3.Size = new System.Drawing.Size(780, 17);
-            this.guna2Separator3.TabIndex = 69;
-            // 
-            // guna2Separator4
-            // 
-            this.guna2Separator4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Separator4.Location = new System.Drawing.Point(82, 426);
-            this.guna2Separator4.Name = "guna2Separator4";
-            this.guna2Separator4.Size = new System.Drawing.Size(783, 17);
-            this.guna2Separator4.TabIndex = 70;
-            // 
-            // tab
-            // 
-            this.tab.Controls.Add(this.tabAppointments);
-            this.tab.Controls.Add(this.tabConsultations);
-            this.tab.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab.Location = new System.Drawing.Point(0, 461);
-            this.tab.Name = "tab";
-            this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(945, 333);
-            this.tab.TabIndex = 75;
-            // 
-            // tabAppointments
-            // 
-            this.tabAppointments.Controls.Add(this.dgvAppointments);
-            this.tabAppointments.Location = new System.Drawing.Point(4, 29);
-            this.tabAppointments.Name = "tabAppointments";
-            this.tabAppointments.Size = new System.Drawing.Size(778, 300);
-            this.tabAppointments.TabIndex = 0;
-            this.tabAppointments.Text = "Appointments";
-            this.tabAppointments.UseVisualStyleBackColor = true;
-            // 
-            // tabConsultations
-            // 
-            this.tabConsultations.Controls.Add(this.dgvConsultations);
-            this.tabConsultations.Location = new System.Drawing.Point(4, 29);
-            this.tabConsultations.Name = "tabConsultations";
-            this.tabConsultations.Size = new System.Drawing.Size(937, 300);
-            this.tabConsultations.TabIndex = 1;
-            this.tabConsultations.Text = "Consultations";
-            this.tabConsultations.UseVisualStyleBackColor = true;
-            // 
-            // dgvAppointments
-            // 
-            this.dgvAppointments.AllowUserToAddRows = false;
-            this.dgvAppointments.AllowUserToDeleteRows = false;
-            this.dgvAppointments.AllowUserToOrderColumns = true;
-            this.dgvAppointments.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(216)))), ((int)(((byte)(189)))));
-            this.dgvAppointments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAppointments.BackgroundColor = System.Drawing.Color.White;
-            this.dgvAppointments.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvAppointments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvAppointments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAppointments.ColumnHeadersHeight = 40;
-            this.dgvAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AppointmentID,
-            this.PatientName,
-            this.DoctorName,
-            this.AppointmentDate,
-            this.Status});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(229)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(169)))), ((int)(((byte)(107)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAppointments.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAppointments.EnableHeadersVisualStyles = false;
-            this.dgvAppointments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(209)))), ((int)(((byte)(177)))));
-            this.dgvAppointments.Location = new System.Drawing.Point(0, 0);
-            this.dgvAppointments.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvAppointments.MultiSelect = false;
-            this.dgvAppointments.Name = "dgvAppointments";
-            this.dgvAppointments.ReadOnly = true;
-            this.dgvAppointments.RowHeadersVisible = false;
-            this.dgvAppointments.RowHeadersWidth = 51;
-            this.dgvAppointments.RowTemplate.Height = 50;
-            this.dgvAppointments.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAppointments.Size = new System.Drawing.Size(778, 300);
-            this.dgvAppointments.TabIndex = 30;
-            this.dgvAppointments.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Carrot;
-            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(216)))), ((int)(((byte)(189)))));
-            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvAppointments.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvAppointments.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvAppointments.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(209)))), ((int)(((byte)(177)))));
-            this.dgvAppointments.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(126)))), ((int)(((byte)(34)))));
-            this.dgvAppointments.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvAppointments.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAppointments.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvAppointments.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvAppointments.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvAppointments.ThemeStyle.ReadOnly = true;
-            this.dgvAppointments.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(229)))), ((int)(((byte)(211)))));
-            this.dgvAppointments.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvAppointments.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAppointments.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvAppointments.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(169)))), ((int)(((byte)(107)))));
-            this.dgvAppointments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // AppointmentID
-            // 
-            this.AppointmentID.HeaderText = "AppointmentID";
-            this.AppointmentID.Name = "AppointmentID";
-            this.AppointmentID.ReadOnly = true;
-            // 
-            // PatientName
-            // 
-            this.PatientName.HeaderText = "PatientName";
-            this.PatientName.Name = "PatientName";
-            this.PatientName.ReadOnly = true;
-            // 
-            // DoctorName
-            // 
-            this.DoctorName.HeaderText = "DoctorName";
-            this.DoctorName.Name = "DoctorName";
-            this.DoctorName.ReadOnly = true;
-            // 
-            // AppointmentDate
-            // 
-            this.AppointmentDate.HeaderText = "AppointmentDate";
-            this.AppointmentDate.Name = "AppointmentDate";
-            this.AppointmentDate.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // dgvConsultations
-            // 
-            this.dgvConsultations.AllowUserToAddRows = false;
-            this.dgvConsultations.AllowUserToDeleteRows = false;
-            this.dgvConsultations.AllowUserToOrderColumns = true;
-            this.dgvConsultations.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
-            this.dgvConsultations.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvConsultations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvConsultations.BackgroundColor = System.Drawing.Color.White;
-            this.dgvConsultations.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvConsultations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvConsultations.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvConsultations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvConsultations.ColumnHeadersHeight = 40;
-            this.dgvConsultations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ConsultationID,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.ConsultDate});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConsultations.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvConsultations.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvConsultations.EnableHeadersVisualStyles = false;
-            this.dgvConsultations.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
-            this.dgvConsultations.Location = new System.Drawing.Point(0, 0);
-            this.dgvConsultations.Margin = new System.Windows.Forms.Padding(2);
-            this.dgvConsultations.MultiSelect = false;
-            this.dgvConsultations.Name = "dgvConsultations";
-            this.dgvConsultations.ReadOnly = true;
-            this.dgvConsultations.RowHeadersVisible = false;
-            this.dgvConsultations.RowHeadersWidth = 51;
-            this.dgvConsultations.RowTemplate.Height = 50;
-            this.dgvConsultations.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvConsultations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvConsultations.Size = new System.Drawing.Size(937, 300);
-            this.dgvConsultations.TabIndex = 22;
-            this.dgvConsultations.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.LightBlue;
-            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(229)))), ((int)(((byte)(251)))));
-            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvConsultations.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvConsultations.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvConsultations.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(230)))), ((int)(((byte)(251)))));
-            this.dgvConsultations.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(169)))), ((int)(((byte)(243)))));
-            this.dgvConsultations.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvConsultations.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvConsultations.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvConsultations.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvConsultations.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvConsultations.ThemeStyle.ReadOnly = true;
-            this.dgvConsultations.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
-            this.dgvConsultations.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvConsultations.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvConsultations.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvConsultations.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvConsultations.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(197)))), ((int)(((byte)(247)))));
-            this.dgvConsultations.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            // 
-            // ConsultationID
-            // 
-            this.ConsultationID.HeaderText = "ConsultationID";
-            this.ConsultationID.Name = "ConsultationID";
-            this.ConsultationID.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "PatientName";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "DoctorName";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // ConsultDate
-            // 
-            this.ConsultDate.HeaderText = "ConsultDate";
-            this.ConsultDate.Name = "ConsultDate";
-            this.ConsultDate.ReadOnly = true;
-            // 
             // frmPatientHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -778,14 +778,15 @@
             this.ClientSize = new System.Drawing.Size(945, 794);
             this.Controls.Add(this.panel1);
             this.Name = "frmPatientHistory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPatientHistory";
             this.Load += new System.EventHandler(this.frmPatientHistory_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tab.ResumeLayout(false);
             this.tabAppointments.ResumeLayout(false);
-            this.tabConsultations.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointments)).EndInit();
+            this.tabConsultations.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsultations)).EndInit();
             this.ResumeLayout(false);
 

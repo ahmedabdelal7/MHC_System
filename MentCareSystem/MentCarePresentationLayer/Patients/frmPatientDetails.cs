@@ -21,6 +21,7 @@ namespace MentCarePresentationLayer.Patients
         }
 
 
+      
 
         private void _LoadDetails()
         {
@@ -37,6 +38,11 @@ namespace MentCarePresentationLayer.Patients
             rbMale.Checked = (patient.Gender == "M");
             rbFemale.Checked = (patient.Gender == "F");
 
+            //Load Image
+
+            if(patient.ImagePath != "")
+                ppProfilePicture.Load(patient.ImagePath);
+
 
         }
         private void frmPatientDetails_Load(object sender, EventArgs e)
@@ -47,6 +53,11 @@ namespace MentCarePresentationLayer.Patients
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pnlContainer_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

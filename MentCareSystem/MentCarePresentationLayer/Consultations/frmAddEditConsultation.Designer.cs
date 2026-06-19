@@ -352,6 +352,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAddEditConsultation);
             this.Name = "frmAddEditConsultation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditConsultation";
             this.Load += new System.EventHandler(this.frmAddEditConsultation_Load);
             this.ResumeLayout(false);

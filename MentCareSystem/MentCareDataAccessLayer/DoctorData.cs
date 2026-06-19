@@ -18,8 +18,8 @@ namespace MentCareDataAccessLayer
             public string Email;
             public string Phone;
             public string Specialization;
-            public DateTime HireDate;                       
-                
+            public DateTime HireDate;
+            public string ImagePath;    
         }
 
         public static int AddNewDoctor(stDoctor doctorInfo)
@@ -27,8 +27,8 @@ namespace MentCareDataAccessLayer
             int doctorID = -1;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"INSERT INTO Doctors (FirstName,LastName,Specialization,Email,Phone,HireDate) 
-                            VALUES (@FirstName, @LastName,@Specialization,@Email,@Phone,@HireDate);
+            string query = @"INSERT INTO Doctors (FirstName,LastName,Specialization,Email,Phone,HireDate, ImagePath) 
+                            VALUES (@FirstName, @LastName,@Specialization,@Email,@Phone,@HireDate, @ImagePath);
                             SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -48,6 +48,11 @@ namespace MentCareDataAccessLayer
             command.Parameters.AddWithValue("@Phone", doctorInfo.Phone);
 
             command.Parameters.AddWithValue("@HireDate", doctorInfo.HireDate);
+
+            if (!string.IsNullOrWhiteSpace(doctorInfo.ImagePath))
+                command.Parameters.AddWithValue("@ImagePath", doctorInfo.ImagePath);
+            else command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+
 
             try
             {
@@ -72,7 +77,7 @@ namespace MentCareDataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"UPDATE Doctors SET FirstName = @FirstName, LastName = @LastName, Specialization = @Specialization,
-                            Email = @Email, Phone = @Phone, HireDate = @HireDate WHERE DoctorID = @DoctorID;";
+                            Email = @Email, Phone = @Phone, HireDate = @HireDate, ImagePath = @ImagePath WHERE DoctorID = @DoctorID;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -89,9 +94,12 @@ namespace MentCareDataAccessLayer
             if (!string.IsNullOrWhiteSpace(doctorInfo.Email))
                 command.Parameters.AddWithValue("@Email", doctorInfo.Email);
             else command.Parameters.AddWithValue("@Email", DBNull.Value);
+            
+            if (!string.IsNullOrWhiteSpace(doctorInfo.ImagePath))
+                command.Parameters.AddWithValue("@ImagePath", doctorInfo.ImagePath);
+            else command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
 
             command.Parameters.AddWithValue("@Phone", doctorInfo.Phone);
-
 
             command.Parameters.AddWithValue("@HireDate", doctorInfo.HireDate);
 
@@ -136,6 +144,11 @@ namespace MentCareDataAccessLayer
                     if (reader["Email"] != DBNull.Value)
                         doctorInfo.Email = reader["Email"].ToString();
                     else doctorInfo.Email = "";
+                    
+
+                    if (reader["ImagePath"] != DBNull.Value)
+                        doctorInfo.ImagePath = reader["ImagePath"].ToString();
+                    else doctorInfo.ImagePath = "";
 
 
                     doctorInfo.Phone = reader["Phone"].ToString();

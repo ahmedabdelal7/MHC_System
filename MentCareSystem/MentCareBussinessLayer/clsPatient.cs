@@ -25,6 +25,7 @@ namespace MentCareBussinessLayer
         public string Phone {  get; set; }
         public string Address { get; set; }
         public string EmergencyContact { get; set; }
+        public string ImagePath { get; set; }
 
         public clsPatient()
         {
@@ -36,12 +37,13 @@ namespace MentCareBussinessLayer
             Phone = string.Empty;
             Address = string.Empty;
             EmergencyContact = string.Empty;
+            ImagePath = string.Empty;
 
             _Mode = enMode.AddNew;
         }
 
         private clsPatient(int PatientID, string FirstName, string LastName, string Gender, DateTime DateOfBirth,
-            string Phone, string Address, string EmergencyContact)
+            string Phone, string Address, string EmergencyContact, string ImagePath)
         {
 
             this.PatientID = PatientID;
@@ -52,6 +54,7 @@ namespace MentCareBussinessLayer
             this.Phone = Phone;
             this.Address = Address;
             this.EmergencyContact = EmergencyContact;
+            this.ImagePath = ImagePath;
 
             _Mode = enMode.Update;
 
@@ -59,7 +62,7 @@ namespace MentCareBussinessLayer
 
         public bool _AddNewPatient()
         {
-            this.PatientID = clsPatientsData.AddPatient(this.FirstName,this.LastName,this.Gender,this.DateOfBirth,this.Phone,this.Address,this.EmergencyContact);
+            this.PatientID = clsPatientsData.AddPatient(this.FirstName,this.LastName,this.Gender,this.DateOfBirth,this.Phone,this.Address,this.EmergencyContact, ImagePath);
 
             return PatientID > 0;
         }
@@ -67,14 +70,14 @@ namespace MentCareBussinessLayer
         public static  clsPatient FindByID(int PatientID)
         {
 
-             string FirstName = "", LastName = "", Gender = "", Phone = "", Address = "", EmergencyContact = ""; 
+            string FirstName = "", LastName = "", Gender = "", Phone = "", Address = "", EmergencyContact = "", ImagePath = "";
              DateTime DateOfBirth = DateTime.Now;
 
              //clsPatient patient = new clsPatient();
 
-            if (clsPatientsData.GetPatientByID(PatientID, ref FirstName, ref LastName, ref Gender, ref DateOfBirth, ref Phone, ref Address, ref EmergencyContact))
+            if (clsPatientsData.GetPatientByID(PatientID, ref FirstName, ref LastName, ref Gender, ref DateOfBirth, ref Phone, ref Address, ref EmergencyContact, ref ImagePath))
             {
-                return new clsPatient(PatientID, FirstName, LastName, Gender, DateOfBirth, Phone, Address, EmergencyContact);
+                return new clsPatient(PatientID, FirstName, LastName, Gender, DateOfBirth, Phone, Address, EmergencyContact, ImagePath);
             }else
                 return null;
 
@@ -102,7 +105,7 @@ namespace MentCareBussinessLayer
 
         public bool _UpdatePatient()
         {
-            return clsPatientsData.UpdatePatient(this.PatientID,this.FirstName, this.LastName, this.Gender, this.DateOfBirth, this.Phone, this.Address, this.EmergencyContact);
+            return clsPatientsData.UpdatePatient(this.PatientID,this.FirstName, this.LastName, this.Gender, this.DateOfBirth, this.Phone, this.Address, this.EmergencyContact, this.ImagePath);
         }
 
         public static bool DeletePatient(int PatientID)

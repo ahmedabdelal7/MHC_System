@@ -23,6 +23,7 @@ namespace MentCareBussinessLayer
         public string Phone { get; set; }
         public string Specialization { get; set; }
         public DateTime HireDate { get; set; }
+        public string ImagePath { get; set; }
 
         public clsDoctor()
         {
@@ -33,11 +34,12 @@ namespace MentCareBussinessLayer
             Phone = string.Empty;
             Specialization = string.Empty;
             HireDate = DateTime.Now;
+            ImagePath = string.Empty;
 
             _Mode = enMode.AddNew;
         } 
 
-        private clsDoctor(int DoctorID,string FirstName,string LastName,string Email, string Phone, string Specialization, DateTime HireDate)
+        private clsDoctor(int DoctorID,string FirstName,string LastName,string Email, string Phone, string Specialization, DateTime HireDate, string ImagePath)
         {
             this.DoctorID = DoctorID;
             this.FirstName = FirstName;
@@ -46,6 +48,7 @@ namespace MentCareBussinessLayer
             this.Phone = Phone;
             this.Specialization = Specialization;
             this.HireDate = HireDate;
+            this.ImagePath = ImagePath;
 
             this._Mode = enMode.Update;
         }
@@ -59,6 +62,7 @@ namespace MentCareBussinessLayer
             stDoctor.Phone = Phone;
             stDoctor.Specialization = Specialization;
             stDoctor.HireDate= HireDate;
+            stDoctor.ImagePath = ImagePath;
             this.DoctorID = clsDoctorData.AddNewDoctor(stDoctor);
 
             return this.DoctorID != -1;
@@ -74,6 +78,7 @@ namespace MentCareBussinessLayer
             stDoctor.Phone = Phone;
             stDoctor.Specialization = Specialization;
             stDoctor.HireDate = HireDate;
+            stDoctor.ImagePath = ImagePath;
 
             return clsDoctorData.UpdateDoctor(stDoctor); // Return (rowsAffected > 0)?
         }
@@ -100,7 +105,7 @@ namespace MentCareBussinessLayer
 
             if(clsDoctorData.GetDoctorByID(DoctorID,ref stDoctor))
             {
-                return new clsDoctor(DoctorID, stDoctor.FirstName,stDoctor.LastName,stDoctor.Email,stDoctor.Phone,stDoctor.Specialization,stDoctor.HireDate);
+                return new clsDoctor(DoctorID, stDoctor.FirstName,stDoctor.LastName,stDoctor.Email,stDoctor.Phone,stDoctor.Specialization,stDoctor.HireDate, stDoctor.ImagePath);
             }
             return null;  
         }

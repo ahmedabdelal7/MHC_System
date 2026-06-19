@@ -92,6 +92,7 @@
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "frmRescheuleAppointment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRescheuleAppointment";
             this.Load += new System.EventHandler(this.frmRescheuleAppointment_Load);
             this.ResumeLayout(false);

@@ -11,14 +11,14 @@ namespace MentCareDataAccessLayer
     public static class clsPatientsData
     {
         public static int AddPatient(string FirstName, string LastName, string Gender, DateTime DateOfBirth,
-            string Phone, string Address, string EmergencyContact)
+            string Phone, string Address, string EmergencyContact, string ImagePath)
         {
 
             int PatientID = -1;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"INSERT INTO Patients (FirstName, LastName, Gender, DateOfBirth, Phone, Address, EmergencyContact) 
-                            VALUES (@FirstName, @LastName, @Gender, @DateOfBirth, @Phone, @Address, @EmergencyContact);
+            string query = @"INSERT INTO Patients (FirstName, LastName, Gender, DateOfBirth, Phone, Address, EmergencyContact, ImagePath) 
+                            VALUES (@FirstName, @LastName, @Gender, @DateOfBirth, @Phone, @Address, @EmergencyContact, @ImagePath);
                             SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -46,6 +46,10 @@ namespace MentCareDataAccessLayer
             else
                 command.Parameters.AddWithValue("@EmergencyContact", DBNull.Value);
 
+            if (!string.IsNullOrWhiteSpace(ImagePath))
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
 
             try
             {
@@ -72,7 +76,7 @@ namespace MentCareDataAccessLayer
 
 
         public static bool GetPatientByID(int PatientID, ref string FirstName, ref string LastName, ref string Gender, ref DateTime DateOfBirth,
-            ref string Phone, ref string Address, ref string EmergencyContact)
+            ref string Phone, ref string Address, ref string EmergencyContact, ref string ImagePath)
         {
             bool isFound = false;
 
@@ -113,6 +117,13 @@ namespace MentCareDataAccessLayer
                         EmergencyContact = (string)reader["EmergencyContact"];
                     else
                         EmergencyContact = "";
+
+
+                    if (reader["ImagePath"] != DBNull.Value)
+                        ImagePath = (string)reader["ImagePath"];
+                    else
+                        EmergencyContact = "";
+
                     reader.Close();
                 }
 
@@ -261,13 +272,13 @@ namespace MentCareDataAccessLayer
         }
 
         public static bool UpdatePatient(int PatientID, string FirstName, string LastName, string Gender, DateTime DateOfBirth,
-            string Phone, string Address, string EmergencyContact)
+            string Phone, string Address, string EmergencyContact, string ImagePath)
         {
             int rowsAffected = 0;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = @"UPDATE Patients SET FirstName = @FirstName, LastName = @LastName, Gender = @Gender, DateOfBirth = @DateOfBirth, 
-                            Phone = @Phone, Address = @Address, EmergencyContact = @EmergencyContact
+                            Phone = @Phone, Address = @Address, EmergencyContact = @EmergencyContact, ImagePath = @ImagePath
                             WHERE PatientID = @PatientID;";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -298,7 +309,10 @@ namespace MentCareDataAccessLayer
             else
                 command.Parameters.AddWithValue("@EmergencyContact", DBNull.Value);
 
-
+            if (!string.IsNullOrWhiteSpace(ImagePath))
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
             try
             {
                 connection.Open();

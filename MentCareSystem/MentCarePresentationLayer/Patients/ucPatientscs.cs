@@ -255,6 +255,23 @@ namespace MentCarePresentationLayer
         {
             ShowPatientDetails();
         }
+
+        private void addNewAppointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            
+            
+            Form frm = new frmAddEditAppointment(-1);
+            frm.ShowDialog();
+            _LoadPatients();
+        }
+
+        private void newAppointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frm = new frmAddEditAppointment(-1);
+            frm.ShowDialog();
+            _LoadPatients();
+        }
     }
 
     

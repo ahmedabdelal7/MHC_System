@@ -1,4 +1,5 @@
 ﻿using MentCareBussinessLayer;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,6 +47,7 @@ namespace MentCarePresentationLayer
                 lblAddEditPatient.Text = "Add New Patient";
                 lblPatientID.Text = "??";
                 _Patient = new clsPatient();
+                lblRemove.Visible = false;
                 return;
             }
 
@@ -57,14 +59,23 @@ namespace MentCarePresentationLayer
             txtLastName.Text = _Patient.LastName.ToString();
             txtPhone.Text = _Patient.Phone.ToString();
             txtAddress.Text = _Patient.Address.ToString();
-            txtEmergencyContact.Text = _Patient.EmergencyContact.ToString();
+            txtEmergencyCall.Text = _Patient.EmergencyContact.ToString();
 
             if(_Patient.Gender == rbMale.Tag.ToString()) 
                 rbMale.Checked = true;
             else
                 rbFemale.Checked = true;
 
-            dateTimePicker1.Value = _Patient.DateOfBirth;
+            dtDateOfBirth.Value = _Patient.DateOfBirth;
+
+            lblRemove.Visible = false;
+
+            if (_Patient.ImagePath != "")
+            {
+                ppProfilePicture.Load(_Patient.ImagePath);
+                lblRemove.Visible = true;
+
+            }
 
         }
 
@@ -102,10 +113,10 @@ namespace MentCarePresentationLayer
             _Patient.LastName = txtLastName.Text;
             _Patient.Phone = txtPhone.Text;
             _Patient.Address = txtAddress.Text;
-            _Patient.EmergencyContact = txtEmergencyContact.Text;
+            _Patient.EmergencyContact = txtEmergencyCall.Text;
 
             _Patient.Gender = rbMale.Tag.ToString();
-            _Patient.DateOfBirth = dateTimePicker1.Value;
+            _Patient.DateOfBirth = dtDateOfBirth.Value;
 
             if (_Mode == enMode.AddNew)
             {
@@ -145,5 +156,42 @@ namespace MentCarePresentationLayer
         {
             this.Close();
         }
+
+        private void UpdateImgePath()
+        {
+            openFileDialog1.InitialDirectory = @"E:\";
+            openFileDialog1.Title = "Choose Image";
+            openFileDialog1.DefaultExt = "jpg";
+            openFileDialog1.Filter = "images (*.jpg) |*.jpg| All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 0;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK) {
+                _Patient.ImagePath = openFileDialog1.FileName;
+
+            }
+            if (_Patient.ImagePath != "")
+            {
+                ppProfilePicture.Load(_Patient.ImagePath);
+                lblRemove.Visible = true;
+            }
+
+        }
+            private void lblUpdate_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+            {
+                UpdateImgePath();
+            }
+
+        private void lblRemove_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DialogResult result =  MessageBox.Show("Are you sure uou want to remove profile Picture?","Confirm",MessageBoxButtons.OKCancel, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1);
+            if(result == DialogResult.OK)
+            {
+                _Patient.ImagePath = "";
+                ppProfilePicture.Load(@"C:\Users\42052\Downloads\Images\user.png");
+                lblRemove.Visible = false;
+
+            }
+        }
+
     }
 }

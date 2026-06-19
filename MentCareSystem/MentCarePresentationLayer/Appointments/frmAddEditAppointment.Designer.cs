@@ -305,6 +305,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAddEditAppointment);
             this.Name = "frmAddEditAppointment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditAppointment";
             this.Load += new System.EventHandler(this.frmAddEditAppointment_Load);
             this.ResumeLayout(false);

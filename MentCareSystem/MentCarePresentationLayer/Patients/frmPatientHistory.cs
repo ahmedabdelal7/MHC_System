@@ -28,13 +28,6 @@ namespace MentCarePresentationLayer.Patients
             _LoadData();
         }
 
-        private void _LoadPatientDetails()
-        {
-           
-
-
-        }
-
         private void _LoadData() {
             
             clsPatient patient = clsPatient.FindByID(_PatientID);
@@ -53,6 +46,7 @@ namespace MentCarePresentationLayer.Patients
             lblNoShow.Text = statisticsrow["NoShow"].ToString();
 
 
+            //Last Consultation
             clsConsultation lastConsultation = clsConsultation.GetLastConsultation(_PatientID);
 
             if(lastConsultation != null)
@@ -70,7 +64,7 @@ namespace MentCarePresentationLayer.Patients
             dgvAppointments.Columns.Clear();
             dgvAppointments.DataSource = clsAppointment.ListAllPatientAppointments(_PatientID);
             dgvConsultations.DataSource = clsConsultation.ListAllPatientConsultations(_PatientID);
-            s
+            
 
         }
 
