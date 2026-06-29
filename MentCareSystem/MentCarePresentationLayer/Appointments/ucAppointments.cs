@@ -324,7 +324,9 @@ namespace MentCarePresentationLayer
 
         }
 
-
-
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not implemented yet!");
+        }
     }
 }

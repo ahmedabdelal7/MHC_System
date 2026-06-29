@@ -102,6 +102,7 @@ namespace MentCarePresentationLayer
             pnlContainer.Controls.Clear();
             //pnlContainer.Controls.Add(consultations);
             SetNavigationButtonsColor((Guna2Button)sender);
+            MessageBox.Show("This feature is not implemented yet!");
         }
 
         private void btnAppointments_Click(object sender, EventArgs e)

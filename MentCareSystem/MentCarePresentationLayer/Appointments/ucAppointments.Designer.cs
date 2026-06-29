@@ -176,61 +176,62 @@
             this.cmNoShow,
             this.cmReschedule});
             this.cmsAppointments.Name = "contextMenuStrip1";
-            this.cmsAppointments.Size = new System.Drawing.Size(210, 180);
+            this.cmsAppointments.Size = new System.Drawing.Size(248, 218);
             this.cmsAppointments.Opening += new System.ComponentModel.CancelEventHandler(this.cmsAppointments_Opening);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(247, 24);
             this.showToolStripMenuItem.Text = "ShowDetails";
+            this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // addNewAppointmentToolStripMenuItem
             // 
             this.addNewAppointmentToolStripMenuItem.Name = "addNewAppointmentToolStripMenuItem";
-            this.addNewAppointmentToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.addNewAppointmentToolStripMenuItem.Size = new System.Drawing.Size(247, 24);
             this.addNewAppointmentToolStripMenuItem.Text = "Add New Appointment";
             this.addNewAppointmentToolStripMenuItem.Click += new System.EventHandler(this.addNewAppointmentToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(247, 24);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // DeleteToolStripMenuItem
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(247, 24);
             this.DeleteToolStripMenuItem.Text = "Delete";
             this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // cmComplete
             // 
             this.cmComplete.Name = "cmComplete";
-            this.cmComplete.Size = new System.Drawing.Size(209, 22);
+            this.cmComplete.Size = new System.Drawing.Size(247, 24);
             this.cmComplete.Text = "Complete Appointment";
             this.cmComplete.Click += new System.EventHandler(this.CompleteAppointmentToolStripMenuItem_Click);
             // 
             // cmCancel
             // 
             this.cmCancel.Name = "cmCancel";
-            this.cmCancel.Size = new System.Drawing.Size(209, 22);
+            this.cmCancel.Size = new System.Drawing.Size(247, 24);
             this.cmCancel.Text = "Cancel Appointment";
             this.cmCancel.Click += new System.EventHandler(this.cancelAppointmentToolStripMenuItem_Click);
             // 
             // cmNoShow
             // 
             this.cmNoShow.Name = "cmNoShow";
-            this.cmNoShow.Size = new System.Drawing.Size(209, 22);
+            this.cmNoShow.Size = new System.Drawing.Size(247, 24);
             this.cmNoShow.Text = "Mark As No Show";
             this.cmNoShow.Click += new System.EventHandler(this.markAsNoShowToolStripMenuItem_Click);
             // 
             // cmReschedule
             // 
             this.cmReschedule.Name = "cmReschedule";
-            this.cmReschedule.Size = new System.Drawing.Size(209, 22);
+            this.cmReschedule.Size = new System.Drawing.Size(247, 24);
             this.cmReschedule.Text = "ReSchedule Appointment";
             this.cmReschedule.Click += new System.EventHandler(this.rescheduleAppointmentToolStripMenuItem_Click);
             // 
